@@ -5,6 +5,9 @@ This is the process documentation for the game _Chesses 4_. The process document
 ### Closing Statement (tbd)
 A final, hopefully-accessible discussion of the game with hindsight.
 
+### [Lists](./lists.md) (of games)
+Me making lists of games I could make
+
 ### [To Do](./to-do.md)
 The todo list of practical tasks for the project.
 

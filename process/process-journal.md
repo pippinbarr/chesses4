@@ -71,3 +71,5 @@ That's a start.
 - Underwater chess, hold your breath plus visual effects
 - Secret king, where you choose your king at the start and have to play by the rules that way, but it looks like whatever a other piece
 - Some sort of divination chess?
+
+(Grand total of ideas here is 25 + 17 + 10 = 52... of which I need 8. Should be doable???)
