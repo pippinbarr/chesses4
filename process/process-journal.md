@@ -34,3 +34,40 @@ Anyway - what chesses could I make then. Here's a combination of what's on my mi
 - ...
 
 That's a start.
+
+--
+
+*Laterrrrrr...*
+
+### Sitting staring at the chess board while Felix bugged me to go do roughhousing
+
+- Zero gravity chess
+- Mess (Félix) with pieces not where they’re meant to be, in a mess, and you play from there
+- Torchlight with a piece turning on its torch when you choose it? Kind of like fog though
+- Half chess edo’s half, just the kingside?
+- Half chess that whole half pieces thing? Still really funny and strange
+- Tamagotchi chess where you have to consistently look after your pieces, feed them etc but that takes a turn? Out you get the actions per turn but some of it is that
+- Gravity chess with some kind of gravitational pull being exerted from somewhere over time
+- Knights where every piece moves like a knight? But don’t make them look like a knight? Including the kings
+- Flippy where the piece moved rotates under the board to a separate board… kind of cool? May need to have kings on both boards?
+- Frogger still seems really strange and cool if I could figure it out? A river in the middle with squares that move over time…
+- Teleporters on the board, maybe only in the center part? Need to learn where they go? Two way? Or weirder?
+- Jump scare chess? Somehow?
+- Trivia to move a piece relevant to the piece
+- Hats chess where they all just have hats on
+- Wiggle room where you can go one square of the board on any side
+- An ongoing game where you can email in a move and I update it?
+- Screen wrap on the two sides would be cool? (Been done.)
+
+### Lying on the outdoor sofa at night when everyone else is in bed
+
+- The king is present (as in Marina)
+- Every second counts, turn indicator switches every second and that player can move
+- Something as simple/weird as photorealistic leaves blowing over the board or something, or holiday photos being dropped onto it… some sort of external element
+- Wind blowing pieces around in gusts?
+- Console chess you play in the browser console by typing in moves and they are reflected in a text render of the board
+- Amazon chess where one side is entirely queens with no king
+- Midas chess where every piece touched turns to gold and… what?
+- Underwater chess, hold your breath plus visual effects
+- Secret king, where you choose your king at the start and have to play by the rules that way, but it looks like whatever a other piece
+- Some sort of divination chess?
