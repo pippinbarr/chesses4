@@ -73,3 +73,33 @@ That's a start.
 - Some sort of divination chess?
 
 (Grand total of ideas here is 25 + 17 + 10 = 52... of which I need 8. Should be doable???)
+
+## Trying stuff on the board (17 June 2026)
+
+### Travelator
+
+I tried out the TRAVELATOR version with Felix for just a little bit before dinner. Enough to confirm that I think it's pretty interesting! Well worth pushing it through... it's a very "computer" idea in that sense of a computer tracking fiddly rules that aren't all that interesting to enforce in person, but which contribute nicely to the play. Might want arrows that indicate the direction of travel? Do we animate the squares themselves moving? That would be nice? Definitely ran into fun things like a movement leading a piece to be attacking... you have to take account of weird stuff and that's fun.
+
+### Wind
+
+Running it on the board there's the *slight* disappointment that the position can end up being kind of "similar" just transposed. I moved all the pieces in an Italian Game opening one square laterally (toward the h file)... but it does change stuff for sure. It occurs to me, too, that you could have some kind of windsock indicate of where the wind is coming from and it could blow in all directions which would be funny... with the gusts being the thing that pushes for real... there would be some stuff to work out around how to interact with turn taking etc. The wind should *not* be predictable in the sense of being able to visualize the resulting position, but it could be cool if there's some incomplete information about it?
+
+It does seem like it could do something worthwhile.
+
+### Mess
+
+I set up a Mess Board and it looks... fine? Not necessarily like it would be all that interesting, but it's plausible that it's just worth doing anyway because why not? It's like a bad version of Chess960 as I've already said. Maybe the problem is that it doesn't have that sense of relating to mess other than just as a bad starting condition.
+
+Occurs to me that you could demand that players get all the pieces back to their starting positions? How would you do that with pawns? Not actually possible, but maybe you can play in reverse back to the cleanliness of the starting position? That's non-terrible? In fact related to Geraint and I playing that sort of version where we were creating patterns rather than playing chess and it had a degree of interest.
+
+If it were about tidying up how would pawns ever get past each other though? Maybe pawns can optionally "uncapture" a pawn or something and create it? Already getting too confusing though... ummmmmmmmmmmm. Maybe it doesn't quite quite pay off.
+
+### Shove
+
+Shove seems both really stupid and maybe like there's something there. Realized with the physical board that you could potentially shove pieces off the board? And that could potentially replace captures? Though then everyone would cluster in the centre so maybe it just leads to nonsense? You can't really have shoves *and* captures. You need a decision about shoving multiple pieces at once.
+
+Doing some research I find: It's been done. Done done done, which makes sense because it's a sort of sensible idea within the confines of chess. So... I suppose I wouldn't bother then.
+
+### Resets
+
+It's not too clear this is all that interesting in practice. When I tried 10 moves and a reset, and played out some of the Two Knights Scotch Game it felt... underwhelming at the reset. Yes, you have fewer pieces and then... well you just start over and that's that. It also could be really unbalanced depending on when the reset happens because you get a freebie in terms of a piece being endangered in the move just before the reset is safe again... so it would have to be made symmetric, which it kind of can't be? Maybe it gets a bit more fiddly than you'd like...

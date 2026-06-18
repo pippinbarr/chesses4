@@ -36,7 +36,7 @@ The idea (and FROGGER is this too) that some squares are moving over time, maybe
 ### 🤔 SCRABBLE. 
 Just the idea of like a TRIPLE WORD SCORE you can get if you land a piece on a specific square. Randomized? Like a pawn can become a bishop if you hit the square or something. And those squares could change over time as well? How quickly does it get too complex/messy? There's a bit of a lack of clarity here for now...
 
-### MESS. 
+### 🤔 MESS. 
 I wrote about this during Chesses 3. The idea that the entire board is just a huge mess and you need to clean it up. But the actual mechanics of that sound tough... what does it mean to tidy up? Felix came up with it again when I was talking to him where his idea was more of a random messy starting position which is far more doable, though I dunno... it would be like a really bad Fischer Random? It's a good title though...
 
 ### CONFESS
@@ -63,14 +63,18 @@ Just implementing the Yoko Ono game in chess.js and so on could be kind of inter
 ### 🔥 PERSONAL / TROLLEY PROBLEM. 
 Mostly thinking as in you label every piece with a "YOUR MOM" kind of label and then just play chess like that. I guess "YOU" would be the respective kings. Quite funny. (I also wonder whether some other ethical framework could be represented on a chessboard for that matter.) I mean, yeah I think this is strong. It's not really the Trolley Problem per se, though that's a catchy name. (Could there be an actual trolley problem?) It's more about PERSONAL or something?
 
-### 🤔 SHOVE. 
+### SHOVE. 
 No captures by you shove a piece backwards based on the capture rules. Just by one square? Or equal to the amount of "run up" you had. Might be too difficult to do much with the standard starting position. Could you shove a row of pieces rather than just one? I quite like this though I wonder if it doesn't work. Probably have to try (on analog) to find out?
+
+Been done. (I did try in analog but I also looked it up and it exists as Sumochess.)
 
 ### CHINTZ
 I'd hoped CHINTZ had the meaning that CHINTZY has but it doesn't. A sort of "weak chess" would be funny. Like floppy, poorly made pieces, or even the board degrading somehow. But CHINTZ which has the word joke to it, the almost homophone, just refers to the fabric (that came to be thought of as cheap and poor quality) So yeah. Not really. Though doesn't have to be word play if there's something fun/funny about the game falling apart.
 
 ### 🤔 RESETS. 
 Every N moves all the remaining pieces reset to starting positions? Some other kind of key moment where all the pieces are reconfigured into a (legal?) position? Maybe even a random configuration of the board for every move? That would be trippy. Fischer random but terrible. I kiiiind of like something about it? The weirdness of going back to the start is funny?
+
+(Testing suggests this might not be as good as I would have liked, though there's something there emotionally in *losing* the state of the board...)
 
 ### DEATH SQUARES. 
 Some kind of bomb lands on a square/column after a set number of turns. Any piece there is "captured" and dead? Or even just on a timer... though then you could screw someone over if their piece was there. Maybe it's a bit dull. Yeah this seems boring.
@@ -84,8 +88,11 @@ The idea that pieces have feelings about the move and switch sides gradually, ch
 ### PROBABLY CHESS. 
 All the possible squares/moves are given probabilities and you have to decide which piece to move? I feel like we already had the purer idea of that before with just the random move chess. Yeah this doesn't seem of interest.
 
-### 🤔 FRANKENCHESS. 
+### FRANKENCHESS. 
 The idea you could move a piece onto another piece and the resulting combined piece could do all the things the two could do, but now it's one piece. So a knight-bishop could make all knight and bishop moves. How would you know you could do this? Felix keeps doing this intuitively... I wonder if it has already been made? I do like the tension between a powerful piece versus the issue of it being captured...
+
+Already exists as *Absorption Chess*.
+- https://www.chessvariants.com/difftaking.dir/cannibal.html
 
 ### 🔥 ZERO-G CHESS
 Mostly it's funny because I made gravity chess but I don't think it's clear what it would mean... just that the pieces all float around aimlessly and you can't play? Is that funny enough? Maybe on mouse over they just get pushed away actually... that's not bad.
@@ -98,6 +105,9 @@ Half chess edo’s half, just the kingside? At any rate a vertical portion inste
 
 ### 🤔 HALF CHESS PIECES
 Half chess that whole half pieces thing? Still really funny and strange. I'd love to make it work because it's just completely bizarre. Realizing it could even matter *which half* you have... like you can only occupy the same square as the correct other half of a piece? Or... well I dunno actually... there are millions of weird implications but maybe that's fun. But also maybe it's completely absurdly impossible to actually make it work?
+
+### YOKO ONO'S PLAY IT BY HALF
+A half version of the all white chess game? I'm just thinking about HALF CHESSES at this point and how it's pretty funny
 
 ### TAMAGOTCHI CHESS
 Tamagotchi chess where you have to consistently look after your pieces, feed them etc but that takes a turn? Out you get the actions per turn but some of it is that? Kind of relates to the PERSONAL CHESS earlier on and this version feels a bit less clear.
@@ -117,8 +127,12 @@ Frogger still seems really strange and cool if I could figure it out? A river in
 ### TELEPORT
 Teleporters on the board, maybe only in the center part? Need to learn where they go? Two way? Or weirder? Seems a bit too unclear? Though maybe you could have just labelled portals so it's a bit easier to understand? 
 
-### 🤔 SNAKES AND LADDERS
+### 🔥 SNAKES AND LADDERS
 Ohhhhh WHAT ABOUT SNAKES AND LADDERS on the board??? That could be fucking great. But maybe there's not enough room? You might end up with things really chaotic at the beginning if any beginning/end points are applied to the starting position... but perhaps that's just funny anyway
+
+Could maybe do something like if travelling on a ladder and there's a piece already at the end you always *capture* it, if travelling on a snake and there's a piece already at the end you always *get captured by it*. How to handle when one of your own pieces is there? Maybe same outcome so you want to avoid that because you lose a piece?
+
+I think this really works. Have to think about the placement stuff but has a ton of potential. I think I should make it.
 
 ### 🤔 JUMP SCARE CHESS / HORROR CHESS
 Somehow? Just in the most obvious way possible? A loud noise sometimes?
@@ -130,16 +144,22 @@ Trivia to move a piece relevant to the piece. It's kiiiind of fun but I think it
 Hats chess where they all just have hats on. I do find that funny. Just a totally cosmetic thing. But maybe not worth actually making? First capture could knock your hat off and then the next one gets you for real? Not the worst... a two lives thing?
 
 ### 🤔 WIGGLE ROOM
-Wiggle room where you can go one square of the board on any side. It's kind of funny. I mean it just amounts to the board being secretly bigger? But it's funny...
+Wiggle room where you can go one square of the board on any side. It's kind of funny. I mean it just amounts to the board being secretly bigger? But it's funny. Yeah I mean maybe it's just humorously transgressive? A bit unclear how you would actually implement it though because it would contain squares that just don't exist. Might simply push it out of reach.
 
 ### 🤔 CORRESPONDENCE CHESS
-An ongoing game where you can email in a move and I update it? Just a single correspondence game between me and whoever bothers to email me? There's something to it.
+An ongoing game where you can email in a move and I update it? Just a single correspondence game between me and whoever bothers to email me? There's something to it. I think I quite like it. Simple but nice.
 
 ### WRAP CHESS
 Screen wrap on the two sides would be cool? (Been done.)
 
 ### 🤔 THE KING IS PRESENT
 The king is present (as in Marina) What would that mean? The idea of a queue to see the king(s).  And then at the end you could capture the king with a Sic Semper Tyrannus, or you could just leave?
+
+There's something quite satisfying here about the queuing mechanics of my game on a chess board, but you run into issues with the movement rules immediately. Pawns can't turn. Knights sort of "have to" skip the line. Etc. I suppose you could only have kings? Or only a specific set of pieces - Rook, King, Queen, that can reliably move in that sort of linear way... and you could have multiples of each because it doesn't really matter at that point... or somehow use different piece images of them each.
+
+There would be something really funny about including the other pieces but I just don't see how you can represent a queue in that situation, it would get too strange. And then you either have to make all pieces just move one square at a time contrary to their abilities which... makes it not really like chess pieces?
+
+Would be pretty funny to include captures and have them mean you get kicked out of the museum. I mean... this is getting very fucking elaborate, but I don't hate that? Might be a stand-alone game though.
 
 ### 🔥 EVERY SECOND COUNTS
 Turn indicator swapping every second and you can make moves only in that moment. Every second counts, turn indicator switches every second and that player can move
@@ -156,8 +176,12 @@ Console chess you play in the browser console by typing in moves and they are re
 ### 🔥 AMAZON CHESS
 Amazon chess where one side is entirely queens with no king. Which is awesome and weird visually. A teeny bit unclear what it means? There's some development there but I do think it's pretty cool. Random side is assigned the Amazons. Not interesting to play though?
 
-### 🤔 MIDAS
+### 🔥 MIDAS
 Midas chess where every piece touched turns to gold and… what? I really think this is cool. I guess it's a bit like the tombstones if you think the gold pieces are then out of the game. Or both players can move the golden pieces? Or just another gag where you touch the piece, it turns to gold and then you can't move it. Bit unsatisfying...
+
+On the other hand, the whole point of the Midas story is that it sucks, so maybe that's fine. "You are not the golden player," or something when you try to move one of the gold pieces.
+
+TECHNICALLY it would be that you would touch a piece to move it, and it would turn to gold and so you could not move it because it would no longer be your piece (colour)? Which is purer and the joke is there but immediately just completely unplayable. Would it even change turns in that situation? No... actually that's not bad. WHITE is Midas, BLACK is normal. Midas starts and just turns all his pieces to gold, never able to move. Not bad. I think that works out.
 
 ### UNDERWATER CHESS
 Underwater chess, hold your breath plus visual effects. It's sort of funny but also... not.
