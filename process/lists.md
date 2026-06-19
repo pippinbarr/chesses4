@@ -1,12 +1,70 @@
 # Lists (of games)
 
+## The "let's do these ones?" list (2026-06-19)
+
+### (THE BOTTOM HALF) HALF CHESS
+
+### (THE RIGHT HALF) HALF CHESS
+
+### (THE HALF-PIECES) HALF CHESS
+(Is there a case to be made for a collection of every interpretation I can make of half chess?)
+
+### GHOST CHESS
+Trasluscent pieces that can all occupty any square they can reach. Is it too stupid and boring? There's a question that arises in the overall project of how many of these "oh ha ha but no" ones that are purely a sort of sight/interaction gag rather than a "real game." You're allowed *some* but not all. Is it 50/50?
+
+### SLOW CHESS
+The pieces animate into position incredibly slowly.
+
+### VOICE RECOGNITION CHESS
+You say your moves and it gets them wrong.
+
+### TRAVELATOR CHESS
+The middle four ranks are all moving in alternating directions each turn.
+
+### MESS CHESS
+Felix's version most obviously, though could also consider a Matter.js intervention if I wanted to be more fancy? Where you have to drag the pieces into place (maybe they can rotate but snap into position when you get them there).
+
+### LESS AND LESS CHESS
+Pieces disappear at some rate. With a popping sound hehe.
+
+### CANDY CRUSH
+With the custom setup and the three-in-a-line vanish rule.
+
+### PERSONAL CHESS
+Pieces are labeled with loved ones and pets. King is you.
+
+### PERSONALITY CHESS
+The pieces have personalities with preferences and will refuse to move and/or change sides if you don't satisfy them.
+
+### ZERO-G CHESS
+As you mouse over pieces they float away. Could be Matter.js or could just be standard frame animations based on mouse movement.
+
+### KNIGHTS
+Every piece moves like a knight.
+
+### SNAKES AND LADDERS
+Maybe just ladders? Or both for both but colour coded?
+
+### WIND
+Occasional wind blows the pieces, can cause captures when opposite pieces overlap.
+
+### AMAZONS
+All queens on one side
+
+### MIDAS
+Pieces turn into gold when you touch them and can no longer be moved. Player is white midas. Sight gag.
+
+### TICK TOCK
+Turn indicator switches each second and you can only make your move in that window (or some other interval, but definitely with ticking)
+
+
+
 ## The mega-list (2026-06-17)
 
 (Fire emoji means I think it could be actually worthwhile going further with the idea.)
 
 ### 🔥 HALF CHESS
 At some point I just wrote that in my Things list of game ideas and chuckled, so I could try to make it. In my mind this involved only the bottom half of a chess board and game, so just the white pieces. And that would be it. Just half of chess. If I wanted to be a real prick about it I could make "THE OTHER HALF" with just the black pieces. Hehehe. Or it could be a premium addition.
-
 
 ### 🔥 GHOST CHESS
 I already made one version of this (as in the movie) but I was struck by how much I enjoyed the strangeness of the more "boring" version where all the pieces would have a lowered alpha and could just move around anywhere, overlapping as many pieces as you like etc. A bit unclear how easy/hard that would be to represent on the underlying board though? Of course a ton of illegal moves, but also dual occupancy of a single square could make using the chess.js representation of the game almost impossible? Or you would have to have a game instance for every single piece maybe...
@@ -24,7 +82,7 @@ Where it does voice recognition for your moves but then just makes some other ra
 ### EXPLODING CHESS. 
 Pieces with a timer after which they will explode with a blast radius. Seems like it might be tough to communicate all the information involved in that though. THis one seems like it falls prey to some UI trouble... a sort of complexity that's inelegant. I think chess probably makes *elegance* a priority actually, which has an impact on the kinds of designs that feel "permissable"...
 
-### 🔥 GRAVES. 
+### 🤔 GRAVES. 
 Captured pieces leave a tombstone and that square can no longer be accessed. Might just get too limited too fast. I gave this a fire emoji because I think it's just worth *trying* it to see what happens. THere's a bit of lack of clarity around the capture though. Do you see the tombstone right away? After the capturing piece left? But then why was it able to occupy that square but then no others?
 
 ### CHESS OF LIFE / CONWAY. 
