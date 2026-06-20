@@ -57,6 +57,8 @@ Pieces turn into gold when you touch them and can no longer be moved. Player is 
 ### TICK TOCK
 Turn indicator switches each second and you can only make your move in that window (or some other interval, but definitely with ticking)
 
+### CORRESPONDENCE
+I still think I want to make this with a simple "mailto:" setup probably? With a mailing list so that anybody who is interested can get an update
 
 
 ## The mega-list (2026-06-17)
