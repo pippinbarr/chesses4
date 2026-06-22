@@ -10,6 +10,60 @@ This is the style file for this project.
   position: relative;
 }
 
+.fog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(210,210,210);
+  opacity: 1;
+  z-index: 2000;
+  margin: -1px;
+  padding: 1px;
+}
+
+#fog-message {
+  background-color: yellow;
+  color: black;
+  text-align: center;
+  font-size: 1em;
+  padding-left: 1em;
+  display: none;
+}
+
+.note-playing {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(240,240,0,0.5);
+  opacity: 1;
+  z-index: -1;
+  display: none;
+}
+
+.w-file-not-playing {
+  border-bottom: 4px solid black;
+}
+
+.b-file-not-playing {
+  border-top: 4px solid black;
+}
+
+.w-file-playing {
+  border-bottom: 4px solid yellow;
+}
+
+.b-file-playing {
+  border-top: 4px solid yellow;
+}
+
+.note {
+  background-color: rgba(255,255,0,1);
+}
+
 .info {
   position: absolute;
   font-size: .75em;
@@ -48,31 +102,14 @@ This is the style file for this project.
   padding: 2em
 }
 
-/* MEMORY */
+/* LEWITT */
 
-.flipper {
-  display: none;
+canvas {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2000;
-  margin: -1px;
-  padding: 1px;
+  z-index: 100;
   pointer-events: none;
-}
-
-/* GHOST */
-
-.ghost-cursor {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-image: url(../assets/images/ghost-cursor-w.png);
-  background-size: cover;
-  width: 1.25em;
-  height: 1.25em;
 }
 
 /* GENERAL */
@@ -91,7 +128,6 @@ body {
   background-color: black;
   user-select: none;
   -webkit-user-select: none;
-  overflow: hidden;
 }
 
 #game {
@@ -108,7 +144,7 @@ body {
   font-size: 1.5em;
   line-height: 2em;
   letter-spacing: 1em;
-  color: cyan;
+  color: yellow;
   text-align: center;
   padding-left: 1em;
   /* margin-bottom: 0.5em; */
@@ -119,14 +155,15 @@ body {
 }
 
 a {
-  color: cyan;
+  color: yellow;
+  /* text-decoration: none; */
 }
 
 #author {
   font-size: 0.75em;
   line-height: 1em;
-  letter-spacing: 0.5em;
-  color: cyan;
+  letter-spacing: 1em;
+  color: yellow;
   text-align: center;
   padding-left: 1em;
   padding-top: 1em;
@@ -156,21 +193,11 @@ a {
 }
 
 #message {
-  background-color: cyan;
+  background-color: yellow;
   color: black;
   text-align: center;
   font-size: 1em;
   letter-spacing: 1em;
-  padding-left: 1em;
-  display: none;
-  margin-bottom: 0.5em;
-}
-
-#verbose-message {
-  background-color: black;
-  color: cyan;
-  text-align: center;
-  font-size: 1em;
   padding-left: 1em;
   display: none;
 }
@@ -190,11 +217,11 @@ a {
 }
 
 .whiteTurn {
-  border-bottom: .25em solid cyan;
+  border-bottom: .25em solid yellow;
 }
 
 .blackTurn {
-  border-top: .25em solid cyan;
+  border-top: .25em solid yellow;
 }
 
 
@@ -204,7 +231,6 @@ a {
 @media only screen and (max-device-width: 768px) {
   body {
     font-size: 3em;
-    overflow: hidden;
   }
 
   #wrapper {
@@ -227,7 +253,6 @@ a {
   body {
     font-size: 1em;
     padding-top: 2em;
-    overflow: hidden;
   }
 
   #wrapper {

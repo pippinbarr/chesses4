@@ -23,23 +23,23 @@ const attackSFX = new Howl({
 class BaseChess {
 
   constructor() {
-    this.setup();
-  }
-
-  setup() {
     this.config = {
       draggable: false,
       position: 'start',
-      onMoveEnd: () => {},
+      onMoveEnd: () => { },
       moveSpeed: 200,
       showNotation: false
     };
 
+    this.setup();
+  }
+
+  setup() {
     this.board = ChessBoard('board', this.config);
     this.game = new Chess();
-    this.inputEnabled = false;
 
     this.from = null;
+    this.currentMove = null;
     this.lastMove = null;
 
     $('#board').css({
@@ -51,6 +51,7 @@ class BaseChess {
     });
 
     this.changeTurn();
+    this.enableInput();
   }
 
   squareClicked(event) {
@@ -67,7 +68,7 @@ class BaseChess {
         $(`.square-${square} ${PIECE}`).effect('shake', {
           times: 1,
           distance: 2
-        }, 50, () => {});
+        }, 50, () => { });
         this.from = null;
         this.clearHighlights();
         return;
@@ -83,7 +84,7 @@ class BaseChess {
           $(`.square-${square} ${PIECE}`).effect('shake', {
             times: 1,
             distance: 2
-          }, 50, () => {});
+          }, 50, () => { });
           this.from = null;
           this.clearHighlights();
           return;
@@ -97,13 +98,7 @@ class BaseChess {
         let to = $(event.currentTarget).attr('data-square');
         // console.log(this.from, to)
         this.move(this.from, to);
-      }
-      else {
-
-      }
-    }
-    else {
-
+      };
     }
   }
 
@@ -114,41 +109,6 @@ class BaseChess {
     if (square !== undefined) options.square = square;
     let moves = this.game.moves(options);
     return moves;
-  }
-
-  move(from, to, silent) {
-    if (silent === undefined) silent = false;
-
-    // Make the move in the game representation
-    let move = {
-      from: from,
-      to: to,
-      promotion: 'q' // NOTE: always promote to a queen for example simplicity
-    };
-
-    move = this.game.move(move);
-
-    if (!silent) {
-      this.disableInput();
-
-      // Clear all highlights from the board (a new turn is about to begin)
-      this.clearHighlights();
-
-      // Update the board based on the new position
-      this.board.position(this.game.fen(), true);
-
-      setTimeout(() => {
-        if (move && (move.flags.indexOf('c') !== -1 || move.flags.indexOf('e') !== -1)) {
-          captureSFX.play();
-        }
-        else {
-          placeSFX.play();
-        }
-        this.moveCompleted();
-      }, this.config.moveSpeed * 1.1);
-    }
-
-    return move;
   }
 
   // Highlights the moves available to the piece on the given square
@@ -166,6 +126,37 @@ class BaseChess {
     return moves.length;
   }
 
+  move(from, to, silent) {
+    if (silent === undefined) silent = false;
+
+    // if (!silent) this.disableInput();
+
+    // Make the move in the game representation
+    let move = {
+      from: from,
+      to: to,
+      promotion: 'q' // NOTE: always promote to a queen for example simplicity
+    };
+
+    this.currentMove = this.game.move(move);
+
+    if (!silent) {
+      this.disableInput();
+
+      // Clear all highlights from the board (a new turn is about to begin)
+      this.clearHighlights();
+
+      // Update the board based on the new position
+      this.board.position(this.game.fen(), true);
+
+      setTimeout(() => {
+        this.moveCompleted();
+      }, this.config.moveSpeed);
+    }
+
+    return move;
+  }
+
   // Remove highlights from every square on the board
   clearHighlights() {
     $(SQUARE).removeClass(`highlight1-32417`);
@@ -181,7 +172,16 @@ class BaseChess {
   }
 
   moveCompleted() {
+    if (this.currentMove && (this.currentMove.flags.indexOf('c') !== -1 || this.currentMove.flags.indexOf('e') !== -1)) {
+      captureSFX.play();
+    }
+    else {
+      placeSFX.play();
+    }
+
     this.from = null;
+    this.currentMove = null;
+
     let moves = this.getMoves();
     if (moves.length === 0) {
       if (this.game.in_check()) {
@@ -201,31 +201,36 @@ class BaseChess {
   }
 
   enableInput() {
-    if (this.inputEnabled) return;
+    if (this.inputEnabled === true) return;
     this.inputEnabled = true;
-    $(SQUARE).on('click', (event, ghost) => {
-      this.squareClicked(event, ghost);
+    $(SQUARE).on('click', (event) => {
+      this.squareClicked(event);
     });
   }
 
   disableInput() {
-    if (!this.inputEnabled) return;
+    if (this.inputEnabled === false) return;
     this.inputEnabled = false;
     $(SQUARE).off('click');
   }
 
   changeTurn() {
+    // console.log("changeTurn()");
     if (this.gameOver) return;
-    this.enableInput();
-    this.from = null;
-
+    // console.log(this.game.turn());
     if (this.game.turn() === this.game.WHITE) {
-      $('.board-b72b1').removeClass('blackTurn', 100);
-      $('.board-b72b1').addClass('whiteTurn', 100, () => {});
+      $('.board-b72b1').removeClass('blackTurn', 250);
+      $('.board-b72b1').addClass('whiteTurn', 250, () => {
+        this.enableInput();
+        this.from = null;
+      });
     }
     else {
-      $('.board-b72b1').removeClass('whiteTurn', 100);
-      $('.board-b72b1').addClass('blackTurn', 100, () => {});
+      $('.board-b72b1').removeClass('whiteTurn', 250);
+      $('.board-b72b1').addClass('blackTurn', 250, () => {
+        this.enableInput();
+        this.from = null;
+      });
     }
   }
 
@@ -252,7 +257,7 @@ class BaseChess {
       }
     }
     else {
-      $('#message').text('DRAW');
+      $('#message').text('STALEMATE');
     }
     $('#message').slideDown();
     this.disableInput();
@@ -265,16 +270,6 @@ class BaseChess {
 
   hideMessage() {
     $('#message').slideUp();
-  }
-
-
-  showVerboseMessage(message) {
-    $('#verbose-message').text(message);
-    $('#verbose-message').slideDown();
-  }
-
-  hideVerboseMessage() {
-    $('#verbose-message').slideUp();
   }
 
   getTurn(current) {

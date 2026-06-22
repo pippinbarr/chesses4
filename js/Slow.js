@@ -1,33 +1,11 @@
-"use strict";
-
-/**
- * Slow Chess
- * 
- * Pieces move very slowly.
- * 
- */
-
-
+const SLOW_ANIMATION_DURATION = 10000;
 class Slow extends BaseChess {
-
-  constructor() {
-    super();
-  }
-
-  setup() {
-    this.config.moveSpeed = 10000;
-    this.config.onMoveEnd = () => {
-      console.log("BIM!")
+    constructor() {
+        super();
     }
 
-    super.setup();
-  }
-
-  squareClicked(event) {
-    super.squareClicked(event);
-  }
-
-  moveCompleted() {
-    super.moveCompleted();
-  }
+    setup() {
+        this.config.moveSpeed = SLOW_ANIMATION_DURATION;
+        super.setup();
+    }
 }

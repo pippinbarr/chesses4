@@ -2,10 +2,10 @@
 
 /*****************
 
-Chesses 4
+Chesses 2
 Pippin Barr
 
-Another eight variations of chess, following on from Chesses 1 2 and 3.
+Another eight variations of chess, following on from Chesses.
 
 ******************/
 
@@ -16,21 +16,57 @@ let MOBILE = false;
 const TITLE = `CHESSES4`;
 const AUTHOR = `BY <a href="https://www.pippinbarr.com/" target="_blank">&nbsp;PIPPIN BARR</a>`;
 
+// The current game data
+let currentGame = undefined;
 // The game itself (as represented by BaseChess and its children)
 let chess;
 // The menu data
-let menu = [{
-  title: `TEST`,
-  id: `test`,
-  class: Test,
-  info: `Something something.`
-},
+let menu = [
+  {
+    title: "SLOW",
+    class: Slow
+  },
+  {
+    title: "B",
+    class: Slow
+  },
+  {
+    title: "C",
+    class: Slow
+  },
+  {
+    title: "D",
+    info: "Use this virtual board to play cross-reality chess! Orient your device screen up and place appropriately sized chess pieces in the standard opening position!",
+    class: Slow
+  },
+  {
+    title: "E",
+    info: `An homage to <a href="https://en.wikipedia.org/wiki/Sol_LeWitt">Sol LeWitt</a>'s <a href="https://en.wikipedia.org/wiki/Sol_LeWitt#Wall_drawings">wall drawings</a>.`,
+    class: Slow
+  },
+  {
+    title: "F",
+    class: Slow
+  },
+  {
+    title: "G",
+    class: Slow
+  },
+  {
+    title: "H",
+    info: "Checkers-style capturing only. Knights, being non-linear, cannot capture anything. Win by capturing the opponent's king.",
+    class: Slow
+  },
 ];
+
+const DEFAULT_ANIMATION_DURATION = 400;
+let animationDuration = DEFAULT_ANIMATION_DURATION; // Default
 
 $(document).ready(chessesSetup);
 
 // Do the work of setting up and displaying the menu
 function chessesSetup() {
+
   $('#title').text(`${TITLE}`)
   $('#author').html(`${AUTHOR}`)
 
@@ -41,20 +77,17 @@ function chessesSetup() {
   for (let i = 0; i < menu.length; i++) {
     let $menuItem = $('<div>')
       .addClass('menu-item active')
-      .attr('id', menu[i].id)
-      .data('game', menu[i].id)
+      .attr('id', menu[i].title)
+      .html(`${menu[i].title}`)
+      .data('game', menu[i].title)
       .data('info', menu[i].info)
       .data('index', i)
       .on('click', menuClicked) // Click event for desktop
       .on('touchstart', menuClicked) // Touch event for mobile
       .appendTo('#menu');
-    let $menuText = $('<span>')
-      .attr('id', `${menu[i].id}-title`)
-      .html(`${menu[i].title}`)
-      .appendTo($menuItem);
     // Info icon will be positioned to the right of the title if needed
-    let $infoSymbol = $('<span class="info">ⓘ</span>')
-      .appendTo($menuItem);
+    let $infoSymbol = $('<span class="info">ⓘ</span>');
+    $menuItem.append($infoSymbol);
   }
 
   // The info panel is used to display extra information about specific games
@@ -65,14 +98,12 @@ function chessesSetup() {
   // The info text is displayed inside the info panel
   const $infoText = $('<div>')
     .addClass('info-text')
-    .html("")
+    .html("DRAUGHTS<p>What is this?</p>")
     .appendTo($infoPanel);
 }
 
 // Handles returning to the menu when you click the title
 function titleClicked() {
-  captureSFX.play();
-
   // Tell the currently active version of the game to quit
   chess.quit();
 
@@ -80,7 +111,7 @@ function titleClicked() {
   $('.instruction').slideUp();
   $('#message').slideUp();
   $('.info-panel').slideUp();
-  $('#verbose-message').slideUp();
+  // $('#fog-message').slideUp();
 
   // Disable the title from "quitting" when you're already there
   $('#title').removeClass('active');
@@ -97,11 +128,14 @@ function titleClicked() {
       .addClass('active')
       .on('click', menuClicked);
   });
+
+  animationDuration = DEFAULT_ANIMATION_DURATION;
+
+  currentGame = undefined;
 }
 
 // Handle a click on a specific menu item
 function menuClicked(e) {
-  attackSFX.play();
 
   // Use the event type to determine whether the user is on mobile or desktop
   // (We use this for the instructions for FOG)
@@ -110,8 +144,19 @@ function menuClicked(e) {
 
   // Get the index in the menu of the chosen item
   let index = $(this).data('index');
+  currentGame = menu[index];
+  if (currentGame.title === "SLOW") {
+    animationDuration = SLOW_ANIMATION_DURATION;
+  }
+  else {
+    animationDuration = DEFAULT_ANIMATION_DURATION;
+  }
   // Instantiate the associated class
-  chess = new menu[index].class(); // Is this hideous? It works...
+  chess = new currentGame.class(); // Is this hideous? It works...
+
+  // Activate the title as a quit button
+  $('#title').addClass('active');
+  $('#title.active').one('click', titleClicked);
 
   // Deactivate the menu item buttons (because one of them is being
   // used to display the title of the current game and shouldn't start a new one)
@@ -120,22 +165,21 @@ function menuClicked(e) {
 
   // Slide away the elements we shouldn't see, including the author
   // and all menu items not presently being played
-  $('#author').slideUp();
-  $.when($('.menu-item').not(`#${menu[index].id}`).slideUp(500))
+  $('#author').slideUp(animationDuration);
+  $.when($('.menu-item').not(`#${$(this).data('game')}`).slideUp(animationDuration, () => {
+    // Once all the menu items are gone, we can slide down the game
+    $('#game').slideDown(animationDuration, () => {
+      // If there are instructions slide them down (for Fog)
+      $(this).find('.instruction').slideDown(animationDuration);
+      // If there is an info icon for this game, fade it in so they notice
+      if ($(this).data('info')) {
+        $(`#${$(this).data('game')} .info`).stop().animate({
+          opacity: 1
+        }, 1000);
+      }
+    });
+  }))
     .then(() => {
-      // Once all the menu items are gone, we can slide down the game
-      $('#game').slideDown(() => { // Activate the title as a quit button
-        $('#title').addClass('active');
-        $('#title.active').one('click', titleClicked);
-        // If there are instructions slide them down (for Fog)
-        $(`#${menu[index].id}`).find('.instruction').slideDown();
-        // If there is an info icon for this game, fade it in so they notice
-        if ($(this).data('info')) {
-          $(`#${$(this).data('game')} .info`).stop().animate({
-            opacity: 1
-          }, 1000);
-        }
-      });
       // Listen for click events on the info icon and display the panel if so
       $('.info').on('click', function (e) {
         // Don't interpret it as a click on anything else
