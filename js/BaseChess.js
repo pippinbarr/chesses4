@@ -136,19 +136,16 @@ class BaseChess {
     return moves.length;
   }
 
-  move(from, to, silent) {
-    if (silent === undefined) silent = false;
-
-    // if (!silent) this.disableInput();
+  move(from, to, silent = false) {
 
     // Make the move in the game representation
     let move = {
       from: from,
       to: to,
-      promotion: 'q' // NOTE: always promote to a queen for example simplicity
+      promotion: 'q', // NOTE: always promote to a queen for example simplicity
     };
 
-    this.currentMove = this.game.move(move);
+    this.currentMove = this.game.move(move, { legal: false });
 
     if (!silent) {
       this.disableInput();

@@ -8,3 +8,7 @@
 
 ## Personal
 - Investigate modifying chessboard.js to include a DIV (or span?) around chess piece img and to animate that instead so that I could add stuff to pieces dynamically/on startup (such as the label for pieces in Personal) -- it's sort of "surface doable" but maybe be "technically hellish"?
+
+## Knights
+- Moving a king turns them into a knight?
+- Currently doesn't check for check etc. and I think it has to to be genuinely of interest

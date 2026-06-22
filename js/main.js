@@ -35,27 +35,26 @@ let menu = [
     class: Personal
   },
   {
-    title: "D",
-    info: "Use this virtual board to play cross-reality chess! Orient your device screen up and place appropriately sized chess pieces in the standard opening position!",
-    class: Slow
+    title: "KNIGHTS",
+    class: Knights
   },
   {
     title: "E",
     info: `An homage to <a href="https://en.wikipedia.org/wiki/Sol_LeWitt">Sol LeWitt</a>'s <a href="https://en.wikipedia.org/wiki/Sol_LeWitt#Wall_drawings">wall drawings</a>.`,
-    class: Slow
+    class: BaseChess
   },
   {
     title: "F",
-    class: Slow
+    class: BaseChess
   },
   {
     title: "G",
-    class: Slow
+    class: BaseChess
   },
   {
     title: "H",
     info: "Checkers-style capturing only. Knights, being non-linear, cannot capture anything. Win by capturing the opponent's king.",
-    class: Slow
+    class: BaseChess
   },
 ];
 
