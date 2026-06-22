@@ -31,8 +31,8 @@ let menu = [
     class: Amazon
   },
   {
-    title: "C",
-    class: Slow
+    title: "PERSONAL",
+    class: Personal
   },
   {
     title: "D",
