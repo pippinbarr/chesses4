@@ -12,3 +12,6 @@
 ## Knights
 - Moving a king turns them into a knight?
 - Currently doesn't check for check etc. and I think it has to to be genuinely of interest
+
+## Less and less
+- Turns out chess.js freaks out when you randomly remove pieces over time?? WHY?

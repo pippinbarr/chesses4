@@ -39,9 +39,8 @@ let menu = [
     class: Knights
   },
   {
-    title: "E",
-    info: `An homage to <a href="https://en.wikipedia.org/wiki/Sol_LeWitt">Sol LeWitt</a>'s <a href="https://en.wikipedia.org/wiki/Sol_LeWitt#Wall_drawings">wall drawings</a>.`,
-    class: BaseChess
+    title: "LESS-N-LESS",
+    class: Less
   },
   {
     title: "F",
