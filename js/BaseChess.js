@@ -5,6 +5,7 @@ const PIECE = ".piece-417db";
 const FILES = "abcdefgh";
 const RANKS = "12345678";
 
+const STARTING_POSITION_FEN = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 const CHECKMATE_FEN = "2rnkbnr/4pppp/4pbpp/7q/8/3QPPPP/3RPPPP/2NBKBNR w - - 0 7";
 const STALEMATE_FEN = "5Rnk/7n/7R/8/8/8/7R/6QK w - - 0 7";
 
@@ -23,20 +24,29 @@ const attackSFX = new Howl({
 class BaseChess {
 
   constructor() {
-    this.config = {
+    this.startFEN = STARTING_POSITION_FEN;
+
+    this.boardConfig = {
       draggable: false,
-      position: 'start',
+      position: STARTING_POSITION_FEN,
       onMoveEnd: () => { },
       moveSpeed: 200,
       showNotation: false
     };
 
+    this.gameConfig = {
+      skipValidation: true
+    }
+
     this.setup();
   }
 
   setup() {
-    this.board = ChessBoard('board', this.config);
-    this.game = new Chess();
+    this.board = ChessBoard('board', this.boardConfig);
+    this.game = new Chess(this.startFEN, this.gameConfig,
+    );
+
+    // console.log(this.game.validateFen(AMAZON_FEN))
 
     this.from = null;
     this.currentMove = null;
@@ -151,7 +161,7 @@ class BaseChess {
 
       setTimeout(() => {
         this.moveCompleted();
-      }, this.config.moveSpeed);
+      }, this.boardConfig.moveSpeed);
     }
 
     return move;
@@ -183,6 +193,7 @@ class BaseChess {
     this.currentMove = null;
 
     let moves = this.getMoves();
+
     if (moves.length === 0) {
       if (this.game.in_check()) {
         // CHECKMATE

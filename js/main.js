@@ -27,8 +27,8 @@ let menu = [
     class: Slow
   },
   {
-    title: "B",
-    class: Slow
+    title: "AMAZON",
+    class: Amazon
   },
   {
     title: "C",
