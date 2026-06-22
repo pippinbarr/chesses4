@@ -103,3 +103,24 @@ Doing some research I find: It's been done. Done done done, which makes sense be
 ### Resets
 
 It's not too clear this is all that interesting in practice. When I tried 10 moves and a reset, and played out some of the Two Knights Scotch Game it felt... underwhelming at the reset. Yes, you have fewer pieces and then... well you just start over and that's that. It also could be really unbalanced depending on when the reset happens because you get a freebie in terms of a piece being endangered in the move just before the reset is safe again... so it would have to be made symmetric, which it kind of can't be? Maybe it gets a bit more fiddly than you'd like...
+
+## Classic Charybdis (22 June 2026)
+
+Or, to quote a good song ("Same Mistakes" by The Echo Friendly):
+
+> I make the same mistakes
+> Seems like I never learn
+> Always give way too much
+> For nothing in return
+> I haven't changed a bit
+> I'm still not over it
+> I make the same mistakes
+> I make the same mistakes
+
+That is, I fell for a couple of days into the *absolutely classic* mistake I make often, which is to get overly concerned about technical elements of a project inside of the design elements. In this case I started out with the code from the earlier chesses games which involves kind of out of date stuff like jQuery and Howler and so on, so I started wondering about changing the whole thing to plain javascript because... well because it's probably a good idea, but it's an idea *opposed* to the design objectives: it takes time and at the end of it you have (on the surface) exactly what you started with (if not something worse!). It could be that it would lead to some better/different design opportunities technically, but I don't really *need* those so it's almost entirely a distraction.
+
+Then, while I was investigating all this I noticed a slight flicker when I was moving pieces in the game and thought it was something to do with the implementation and started searching for it. This despite the fact that "a slight flicker" is not a very good reason to de-rail the entire project. I looked for it all over, made the same changes repeatedly, never found it. Seems to be introduced in some random way when I make some changes to the code, but then even if I revert it remains. And it disappears in private browsing so... just a ghost? Again, not something to pursue at the expense of design, prototyping, progress. Priorities.
+
+So, so, so. I have reverted in my intention to "just get on with it." There's now a version of SLOW in there that's playable. 10 second move time, could probably be higher. Occurred to me while doing it that I could also slow down the menu stuff and that would be a bit funny.
+
+Let's carry on!
