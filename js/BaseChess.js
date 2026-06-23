@@ -142,13 +142,9 @@ class BaseChess {
       promotion: 'q', // NOTE: always promote to a queen for example simplicity
     };
 
-    console.log("==Before this.game.move")
-    console.log(this.game.ascii());
     this.currentMove = this.game.move(move, { legal: false });
     this.game.load(this.game.fen());
 
-    console.log("==After this.game.move")
-    console.log(this.game.ascii());
 
     if (!silent) {
       this.disableInput();
@@ -156,16 +152,12 @@ class BaseChess {
       // Clear all highlights from the board (a new turn is about to begin)
       this.clearHighlights();
 
-      console.log("==Before set board position on move")
-      console.log(this.game.ascii());
       // Update the board based on the new position
       this.board.position(this.game.fen(), true);
-      console.log("==After set board position on move")
-      console.log(this.game.ascii());
 
       setTimeout(() => {
         this.moveCompleted();
-      }, this.boardConfig.moveSpeed * 1.1);
+      }, this.boardConfig.moveSpeed);
     }
 
     return move;
@@ -230,10 +222,9 @@ class BaseChess {
   }
 
   changeTurn() {
-    // console.log("changeTurn()");
     if (this.gameOver) return;
-    // console.log(this.game.turn());
-    if (this.game.turn() === this.game.WHITE) {
+    if (this.game.turn() === 'w') {
+      console.log("To white")
       $('.board-b72b1').removeClass('blackTurn', 250);
       $('.board-b72b1').addClass('whiteTurn', 250, () => {
         this.enableInput();
@@ -241,6 +232,7 @@ class BaseChess {
       });
     }
     else {
+      console.log("TO black")
       $('.board-b72b1').removeClass('whiteTurn', 250);
       $('.board-b72b1').addClass('blackTurn', 250, () => {
         this.enableInput();

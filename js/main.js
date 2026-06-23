@@ -43,8 +43,8 @@ let menu = [
     class: Less
   },
   {
-    title: "F",
-    class: BaseChess
+    title: "TICK TOCK",
+    class: TickTock
   },
   {
     title: "G",
