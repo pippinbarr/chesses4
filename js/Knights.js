@@ -5,7 +5,9 @@ class Knights extends BaseChess {
 
     setup() {
         const KNIGHTS_FEN = "nnnnnnnn/nnnnnnnn/8/8/8/8/NNNNNNNN/NNNNNNNN w - - 0 1";
-        this.knightsGame = new Chess(KNIGHTS_FEN);
+        this.knightsGame = new Chess(KNIGHTS_FEN, {
+            skipValidation: true
+        });
 
         super.setup();
     }
@@ -52,12 +54,15 @@ class Knights extends BaseChess {
         }, from);
 
         this.currentMove = this.game.move(move, { legal: false });
-
+        this.game.load(this.game.fen(), {
+            skipValidation: true
+        });
 
         this.game.put({
             type: currentPiece.type,
             color: currentPiece.color
         }, to)
+        this.game.load(this.game.fen());
 
         if (!silent) {
             this.disableInput();

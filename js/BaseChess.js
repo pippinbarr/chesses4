@@ -43,10 +43,7 @@ class BaseChess {
 
   setup() {
     this.board = ChessBoard('board', this.boardConfig);
-    this.game = new Chess(this.startFEN, this.gameConfig,
-    );
-
-    // console.log(this.game.validateFen(AMAZON_FEN))
+    this.game = new Chess(this.startFEN, this.gameConfig);
 
     this.from = null;
     this.currentMove = null;
@@ -145,7 +142,13 @@ class BaseChess {
       promotion: 'q', // NOTE: always promote to a queen for example simplicity
     };
 
+    console.log("==Before this.game.move")
+    console.log(this.game.ascii());
     this.currentMove = this.game.move(move, { legal: false });
+    this.game.load(this.game.fen());
+
+    console.log("==After this.game.move")
+    console.log(this.game.ascii());
 
     if (!silent) {
       this.disableInput();
@@ -153,12 +156,16 @@ class BaseChess {
       // Clear all highlights from the board (a new turn is about to begin)
       this.clearHighlights();
 
+      console.log("==Before set board position on move")
+      console.log(this.game.ascii());
       // Update the board based on the new position
       this.board.position(this.game.fen(), true);
+      console.log("==After set board position on move")
+      console.log(this.game.ascii());
 
       setTimeout(() => {
         this.moveCompleted();
-      }, this.boardConfig.moveSpeed);
+      }, this.boardConfig.moveSpeed * 1.1);
     }
 
     return move;

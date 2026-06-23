@@ -10,13 +10,17 @@ This is the style file for this project.
   position: relative;
 }
 
+.piece-417db {
+  pointer-events: none;
+}
+
 .fog {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(210,210,210);
+  background-color: rgba(210, 210, 210);
   opacity: 1;
   z-index: 2000;
   margin: -1px;
@@ -38,7 +42,7 @@ This is the style file for this project.
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(240,240,0,0.5);
+  background-color: rgba(240, 240, 0, 0.5);
   opacity: 1;
   z-index: -1;
   display: none;
@@ -61,7 +65,7 @@ This is the style file for this project.
 }
 
 .note {
-  background-color: rgba(255,255,0,1);
+  background-color: rgba(255, 255, 0, 1);
 }
 
 .info {
@@ -88,7 +92,7 @@ This is the style file for this project.
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.9);
+  background-color: rgba(0, 0, 0, 0.9);
   color: white;
   letter-spacing: normal;
   font-size: 1em;
@@ -117,8 +121,8 @@ canvas {
 @font-face {
   font-family: Vera;
   src: url('../assets/fonts/VeraMoBd.ttf');
-  font-weight:400;
-  font-weight:normal;
+  font-weight: 400;
+  font-weight: normal;
 }
 
 body {
@@ -280,6 +284,6 @@ a {
 }
 
 .highlight1-32417 {
-  -webkit-box-shadow:inset 0 0 3px 3px red;
-  box-shadow: inset 200px 200px 0px 200px rgba(255,255,0,0.5);
+  -webkit-box-shadow: inset 0 0 3px 3px red;
+  box-shadow: inset 200px 200px 0px 200px rgba(255, 255, 0, 0.5);
 }
