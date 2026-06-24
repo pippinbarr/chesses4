@@ -1,5 +1,25 @@
 # Lists (of games)
 
+## The actual current list (2026-06-24)
+
+### Slow Chess
+
+### Less N Less Chess
+
+### Knighty Knight Chess
+
+### Amazon Chess
+
+### Tick Tock Chess
+
+### Match 3 Chess
+
+### Personal Chess
+
+If I can manage the HTML/CSS?
+
+### ...
+
 ## The "let's do these ones?" list (2026-06-19)
 
 ### (THE BOTTOM HALF) HALF CHESS
@@ -11,6 +31,8 @@
 
 ### GHOST CHESS
 Trasluscent pieces that can all occupty any square they can reach. Is it too stupid and boring? There's a question that arises in the overall project of how many of these "oh ha ha but no" ones that are purely a sort of sight/interaction gag rather than a "real game." You're allowed *some* but not all. Is it 50/50?
+
+**Update:** Looks like fighting the HTML/CSS for this might be more work than it's worth? Early attempts at the standard relative container/absolute children idea to overlay two boards... did not work. (It might be that chessboard.js is changing their CSS internally?)
 
 ### SLOW CHESS
 The pieces animate into position incredibly slowly.
@@ -32,6 +54,8 @@ With the custom setup and the three-in-a-line vanish rule.
 
 ### PERSONAL CHESS
 Pieces are labeled with loved ones and pets. King is you.
+
+**Update:** Thought this would be easy and instead it's hard: CSS/HTML + Chess board has turned out not to work very well. Will probably try again because it's a good idea, but losing faith.
 
 ### PERSONALITY CHESS
 The pieces have personalities with preferences and will refuse to move and/or change sides if you don't satisfy them.

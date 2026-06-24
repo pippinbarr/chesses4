@@ -51,9 +51,9 @@ let menu = [
     class: Match3
   },
   {
-    title: "A",
+    title: "TRAVELATOR",
     info: "Oh my.",
-    class: BaseChess
+    class: Travelator
   },
 ];
 
