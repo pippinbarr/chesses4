@@ -47,8 +47,8 @@ let menu = [
     class: TickTock
   },
   {
-    title: "G",
-    class: BaseChess
+    title: "MATCH3",
+    class: Match3
   },
   {
     title: "H",

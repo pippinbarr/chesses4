@@ -28,7 +28,7 @@ class BaseChess {
 
     this.boardConfig = {
       draggable: false,
-      position: STARTING_POSITION_FEN,
+      position: this.startFEN,
       onMoveEnd: () => { },
       moveSpeed: 200,
       showNotation: false
