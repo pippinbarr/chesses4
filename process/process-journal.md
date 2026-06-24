@@ -124,3 +124,13 @@ Then, while I was investigating all this I noticed a slight flicker when I was m
 So, so, so. I have reverted in my intention to "just get on with it." There's now a version of SLOW in there that's playable. 10 second move time, could probably be higher. Occurred to me while doing it that I could also slow down the menu stuff and that would be a bit funny.
 
 Let's carry on!
+
+## Break on Through? (23 June 2026)
+
+Wellll... I tried to just get on with it as promised but then ran into problem after problem with other technical details. Specifically when I tried to make both Knights and Less N Less I ran into weird weird stuff where pieces would turn into knights unexpectedly (Knights) or when pieces removed from the board would reappear suddenly (Less N Less). Both drove me back down into Charybdis (or maybe this time it was Scylla?) trying to figure out what the hell was happening.
+
+I never worked it out... kept trying to isolate the problem and it seemed more and more likely it was something in chess.js which felt incredibly defeating. Then out of nowhere I had the idea of just resetting the game to its *own FEN notation*... basically changing nothing but... somehow that worked and the game stablized? So... don't know why. A real "conversation with materials" where I didn't understand what it said?
+
+But also felt like a kind of counter-argument to the "letting go" argument where you find a really difficult bug but you *do hold on and keep trying* because things seem sufficiently important to make the effort. How do you know when to do that and when to just give it up? (Like Personal I may give up on pretty fast.) I think it's to do partly with whether the technical problem is something that would/could impact a whole lot of ideas... which this thing of not being able to manage kind of weird/illegal positions felt like it was... there's just a ton of variations you cannot do if you can't arbitrarily change the board setup and have the game continue on.
+
+Anyway this means I'm feeling a bit more positive about things?
