@@ -57,7 +57,7 @@ class BaseChess {
       transform: 'rotate(0deg)'
     });
 
-    this.changeTurn();
+    this.highlightTurn('w');
     this.enableInput();
   }
 
@@ -223,22 +223,26 @@ class BaseChess {
 
   changeTurn() {
     if (this.gameOver) return;
-    if (this.game.turn() === 'w') {
-      console.log("To white")
-      $('.board-b72b1').removeClass('blackTurn', 250);
-      $('.board-b72b1').addClass('whiteTurn', 250, () => {
-        this.enableInput();
-        this.from = null;
-      });
+
+    this.highlightTurn(this.game.turn());
+  }
+
+  highlightTurn(turn) {
+    let to = 'blackTurn';
+    let from = 'whiteTurn';
+
+    if (turn === 'w') {
+      to = 'whiteTurn';
+      from = 'blackTurn';
     }
-    else {
-      console.log("TO black")
-      $('.board-b72b1').removeClass('whiteTurn', 250);
-      $('.board-b72b1').addClass('blackTurn', 250, () => {
-        this.enableInput();
-        this.from = null;
-      });
-    }
+
+    $('.board-b72b1').removeClass(from, 250);
+    $('.board-b72b1').addClass(to, 250, () => {
+      this.enableInput();
+      this.clearHighlights();
+      this.from = null;
+      this.to = null;
+    });
   }
 
   changeTurnTo(color) {

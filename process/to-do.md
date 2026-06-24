@@ -11,7 +11,9 @@
 
 ## Knights
 - Moving a king turns them into a knight?
-- Currently doesn't check for check etc. and I think it has to to be genuinely of interest
+- Currently doesn't check for check etc. and I think it has to to be genuinely of interest - the king moving as a knight is especially weird for this?
 
 ## Less and less
-- Turns out chess.js freaks out when you randomly remove pieces over time?? WHY?
+- I still don't know the answer, but it is apparently fixed by reloading the game from its own FEN after every change? ~~Turns out chess.js freaks out when you randomly remove pieces over time?? WHY?~~
+- There's still some stuff to work out around check and checkmate because you could technically evade check/checkmate via multiple moves -- so need to be able to ignore the rules and then check for them when I want to?
+- Should probably only be checkmate if you finish a turn in check(or mate)?

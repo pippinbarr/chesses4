@@ -4,32 +4,29 @@ class TickTock extends BaseChess {
     }
 
     setup() {
-        super.setup();
+        this.currentTurn = 'w';
 
-        console.log(this.game.turn())
+        super.setup();
 
         this.clock = setInterval(() => {
             this.tickTock();
         }, 5000)
 
-        this.currentTurn = 'w';
     }
 
     tickTock() {
         this.currentTurn = this.currentTurn === 'w' ? 'b' : 'w'
-        console.log("tickTock new currentTurn is: ", this.currentTurn);
         this.game.setTurn(this.currentTurn);
+        console.log("Clearing highlights. Resetting turn.");
+        this.clearHighlights();
         super.changeTurn();
     }
 
     squareClicked(event) {
-        console.log("squareClicked current turn is: ", this.currentTurn)
         super.squareClicked(event);
     }
 
     move(from, to, silent = false) {
-        console.log("move() currentTurn is: ", this.currentTurn);
-
         super.move(from, to, silent);
     }
 
