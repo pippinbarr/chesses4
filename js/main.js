@@ -51,8 +51,8 @@ let menu = [
     class: Match3
   },
   {
-    title: "H",
-    info: "Checkers-style capturing only. Knights, being non-linear, cannot capture anything. Win by capturing the opponent's king.",
+    title: "A",
+    info: "Oh my.",
     class: BaseChess
   },
 ];
