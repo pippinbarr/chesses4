@@ -52,7 +52,6 @@ class Travelator extends BaseChess {
                     }
                     else if (toFile > 7) {
                         toFile = 0;
-
                     }
                     travels.push({
                         piece: piece,
@@ -64,8 +63,11 @@ class Travelator extends BaseChess {
             }
         }
 
+        // Need to do these two loops separately to avoid interference
         for (let travel of travels) {
             this.game.remove(travel.from);
+        }
+        for (let travel of travels) {
             this.game.put(travel.piece, travel.to);
         }
 

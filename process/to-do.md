@@ -22,7 +22,7 @@
 - Need the popping sound
 
 ## Travelator
-- A piece vanished when I was testing
+- To do with the order of effects in a for loop that was both removing and adding pieces, needed to separate ~~A piece vanished when I was testing -- seems to be if there are two on the right edge, the first one just goes away!~~
 
 ## Correspondence
 
