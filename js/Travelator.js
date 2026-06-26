@@ -9,6 +9,25 @@ class Travelator extends BaseChess {
         this.travelatorRanks = "3456".split('');
         this.transforms = [-1, 1, -1, 1];
         this.edges = [];
+
+        const files = FILES.split('');
+        for (let file of files) {
+            for (let rank of this.travelatorRanks) {
+                const square = `${file}${rank}`;
+                let arrowChar = rank % 2 === 0 ? "→" : "←";
+                let $arrow = $(`<p>${arrowChar}</p>`);
+                $arrow.css({
+                    position: "absolute",
+                    width: "100%",
+                    height: "100%",
+                    top: "-10%",
+                    textAlign: "center",
+                    fontSize: "1em",
+                    zIndex: "-1"
+                });
+                $(`.square-${square}`).append($arrow)
+            }
+        }
     }
 
     moveCompleted() {
