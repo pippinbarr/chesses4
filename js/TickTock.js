@@ -1,3 +1,11 @@
+const tickSFX = new Howl({
+    src: ['assets/sounds/tick.wav',]// 'assets/sounds/attack.mp3']
+});
+
+const tockSFX = new Howl({
+    src: ['assets/sounds/tock.wav',]// 'assets/sounds/attack.mp3']
+});
+
 class TickTock extends BaseChess {
     constructor() {
         super();
@@ -8,18 +16,33 @@ class TickTock extends BaseChess {
 
         super.setup();
 
+        // setTimeout(() => {
+        // this.tick = true;
+        // tickSFX.play();
         this.clock = setInterval(() => {
             this.tickTock();
-        }, 5000)
+        }, 4000);
+        // }, 250);
 
     }
 
     tickTock() {
         this.currentTurn = this.currentTurn === 'w' ? 'b' : 'w'
         this.game.setTurn(this.currentTurn);
-        console.log("Clearing highlights. Resetting turn.");
         this.clearHighlights();
         super.changeTurn();
+    }
+
+    highlightTurn() {
+        super.highlightTurn(this.game.turn(), () => {
+            this.tick = !this.tick;
+            if (this.tick) {
+                tickSFX.play();
+            }
+            else {
+                tockSFX.play();
+            }
+        })
     }
 
     squareClicked(event) {
@@ -38,5 +61,9 @@ class TickTock extends BaseChess {
 
     changeTurn() {
 
+    }
+
+    quit() {
+        clearInterval(this.clock);
     }
 }

@@ -16,7 +16,6 @@ class Less extends BaseChess {
             let square = false;
             while (!square) {
                 square = `${this.randomInString("abcdefgh")}${this.randomInString("12345678")}`;
-                console.log(`Trying ${square}...`)
                 let piece = this.game.get(square);
                 if (piece) {
                     if (piece.type === 'k') square = false;
@@ -25,8 +24,6 @@ class Less extends BaseChess {
                 else square = false;
             }
 
-            console.log("Chose ", square);
-
             $(`.square-${square}`).children().first().effect({
                 effect: "shake",
                 direction: "left",
@@ -34,7 +31,6 @@ class Less extends BaseChess {
                 times: 7,
                 duration: 500,
                 complete: () => {
-                    console.log("Shook it up...")
                     popSFX.play();
                     this.game.remove(square);
                     this.game.load(this.game.fen());

@@ -35,8 +35,9 @@
 - Pretty sure there are check and mate issues to investigate
 
 ## Tick Tock
+- ~~Needs a clock sound for the ticks and tocks~~
+
 - Pretty sure there are check and mate issues to investigate
-- Needs a clock sound for the ticks and tocks
 
 # 😭 Gave up on
 
