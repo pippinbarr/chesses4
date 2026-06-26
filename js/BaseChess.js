@@ -213,12 +213,17 @@ class BaseChess {
     $(SQUARE).on('click', (event) => {
       this.squareClicked(event);
     });
+
+    console.log("enabled input");
+    console.log(this.game.turn())
   }
 
   disableInput() {
     if (this.inputEnabled === false) return;
     this.inputEnabled = false;
     $(SQUARE).off('click');
+
+    console.log("disabled input");
   }
 
   changeTurn() {
@@ -227,7 +232,7 @@ class BaseChess {
     this.highlightTurn(this.game.turn());
   }
 
-  highlightTurn(turn) {
+  highlightTurn(turn, complete) {
     let to = 'blackTurn';
     let from = 'whiteTurn';
 
@@ -242,6 +247,9 @@ class BaseChess {
       this.clearHighlights();
       this.from = null;
       this.to = null;
+      if (complete) {
+        complete();
+      }
     });
   }
 

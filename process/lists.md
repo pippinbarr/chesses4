@@ -6,6 +6,9 @@
 
 ### Less N Less Chess
 
+#### 2026-06-24
+Need a popping sound, maybe a shake animation first as well?
+
 ### Knighty Knight Chess
 
 ### Amazon Chess
@@ -16,9 +19,13 @@
 
 ### Personal Chess
 
-If I can manage the HTML/CSS?
+#### 2026-06-24
+If I can manage the HTML/CSS? (Signs point to no?)
 
-### ...
+### Travelator
+
+#### 2026-06-24
+Tried really hard with this but running into a legibility issue where if I animate the pieces it looks terrible and janky, and if I don't animate them it looks confusing and unclear. It *could* be that it gets saved by arrows on the board, but it feels like such a concession unfortunately.
 
 ## The "let's do these ones?" list (2026-06-19)
 

@@ -30,9 +30,13 @@ let menu = [
     title: "AMAZON",
     class: Amazon
   },
+  // {
+  //   title: "PERSONAL",
+  //   class: Personal
+  // },
   {
-    title: "PERSONAL",
-    class: Personal
+    title: "CORRESPOND",
+    class: Correspondence,
   },
   {
     title: "KNIGHTS",
@@ -108,7 +112,9 @@ function titleClicked() {
   // Slide up all the things we don't want to see on the main menu
   $('.instruction').slideUp();
   $('#message').slideUp();
-  $('.info-panel').slideUp();
+  $('.info-panel').slideUp(() => {
+    $('#correspond-box').slideUp();
+  });
   // $('#fog-message').slideUp();
 
   // Disable the title from "quitting" when you're already there

@@ -14,60 +14,6 @@ This is the style file for this project.
   pointer-events: none;
 }
 
-.fog {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(210, 210, 210);
-  opacity: 1;
-  z-index: 2000;
-  margin: -1px;
-  padding: 1px;
-}
-
-#fog-message {
-  background-color: yellow;
-  color: black;
-  text-align: center;
-  font-size: 1em;
-  padding-left: 1em;
-  display: none;
-}
-
-.note-playing {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(240, 240, 0, 0.5);
-  opacity: 1;
-  z-index: -1;
-  display: none;
-}
-
-.w-file-not-playing {
-  border-bottom: 4px solid black;
-}
-
-.b-file-not-playing {
-  border-top: 4px solid black;
-}
-
-.w-file-playing {
-  border-bottom: 4px solid yellow;
-}
-
-.b-file-playing {
-  border-top: 4px solid yellow;
-}
-
-.note {
-  background-color: rgba(255, 255, 0, 1);
-}
-
 .info {
   position: absolute;
   font-size: .75em;
@@ -80,6 +26,25 @@ This is the style file for this project.
 
 .info:hover {
   transform: rotate(10deg);
+}
+
+#correspond-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  z-index: 1;
+  display: none;
+}
+
+#correspond-message {
+  letter-spacing: normal;
+  font-size: 1em;
+  line-height: 1.5;
+  padding: 10%;
 }
 
 #game {
