@@ -18,10 +18,11 @@
 
 ## Less N Less
 - I still don't know the answer, but it is apparently fixed by reloading the game from its own FEN after every change? ~~Turns out chess.js freaks out when you randomly remove pieces over time?? WHY?~~
+- And a shake added too ~~Need the popping sound~~
 
 - There's still some stuff to work out around check and checkmate because you could technically evade check/checkmate via multiple moves -- so need to be able to ignore the rules and then check for them when I want to?
 - Should probably only be checkmate if you finish a turn in check(or mate)?
-- Need the popping sound
+- Seem to be losing en passant due to fen() and reloading (may be endemic)
 
 ## Travelator
 - To do with the order of effects in a for loop that was both removing and adding pieces, needed to separate ~~A piece vanished when I was testing -- seems to be if there are two on the right edge, the first one just goes away!~~

@@ -1,22 +1,22 @@
+const popSFX = new Howl({
+    src: ['assets/sounds/pop.wav',]// 'assets/sounds/attack.mp3']
+});
+
 class Less extends BaseChess {
     constructor() {
         super();
 
-        this.moveCounter = 0;
-        this.whitePieces = "pppppppprnbqbnr".split('').sort(() => 0.5 - Math.random());
-
-        this.blackPieces = "pppppppprnbqbnr".split('').sort(() => 0.5 - Math.random());
-
-        this.removed = [];
+        this.moves = 0;
     }
 
-    moveCompleted() {
-        super.moveCompleted();
+    handleNextTurn() {
+        this.moves++;
 
-        if (this.game.history().length % 2 === 0) {
+        if (this.moves % 1 === 0) {
             let square = false;
             while (!square) {
                 square = `${this.randomInString("abcdefgh")}${this.randomInString("12345678")}`;
+                console.log(`Trying ${square}...`)
                 let piece = this.game.get(square);
                 if (piece) {
                     if (piece.type === 'k') square = false;
@@ -24,22 +24,25 @@ class Less extends BaseChess {
                 }
                 else square = false;
             }
-            console.log("==Before remove ", square)
-            console.log(this.game.ascii())
-            console.log(this.game.fen())
-            this.game.remove(square);
-            this.removed.push(square);
-            console.log("==After remove ", square)
-            console.log(this.game.ascii())
-            console.log(this.game.fen())
-            this.board.position(this.game.fen());
-            console.log("==After set board ", square)
-            console.log(this.game.ascii())
-            console.log(this.game.fen())
 
-            console.log(this.game.turn())
-            console.log("Removed list:");
-            console.log(this.removed)
+            console.log("Chose ", square);
+
+            $(`.square-${square}`).children().first().effect({
+                effect: "shake",
+                direction: "left",
+                distance: 3,
+                times: 7,
+                duration: 500,
+                complete: () => {
+                    console.log("Shook it up...")
+                    popSFX.play();
+                    this.game.remove(square);
+                    this.game.load(this.game.fen());
+                    this.board.position(this.game.fen());
+                    super.handleNextTurn();
+                }
+            });
+
         }
     }
 
