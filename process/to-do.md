@@ -5,15 +5,15 @@
 
 ## Slow
 - ~~The animation works in a strange way that leaves a huge pause before the sound and turn change, is it some kind of easing? Looks like it may be fixable by using the onMoveEnd, or by removing the 1.1 multiplier I seem to have on the sound effect. But really why would I not base it on the event.~~
-
-- Remember to slow it back down (10? 20? 30?)
+- Trying 15 seconds on for size ~~Remember to slow it back down (10? 20? 30?)~~
 
 ## Amazon
 - ~~Handle checkmate properly with validation stuff~~
 - ~~Handle the case where all queens are captured leading to a Black win~~
 
 ## Knights
-- Moving a king turns them into a knight?
+- This went away at some point ~~Moving a king turns them into a knight?~~
+
 - Currently doesn't check for check etc. and I think it has to to be genuinely of interest - the king moving as a knight is especially weird for this?
 
 ## Less N Less
