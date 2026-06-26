@@ -133,7 +133,7 @@ class BaseChess {
     return moves.length;
   }
 
-  move(from, to, silent = false) {
+  move(from, to, silent = false, skipValidation = false) {
 
     // Make the move in the game representation
     let move = {
@@ -143,7 +143,7 @@ class BaseChess {
     };
 
     this.currentMove = this.game.move(move, { legal: false });
-    this.game.load(this.game.fen());
+    this.game.load(this.game.fen(), { skipValidation: skipValidation });
 
 
     if (!silent) {
@@ -191,7 +191,7 @@ class BaseChess {
     let moves = this.getMoves();
 
     if (moves.length === 0) {
-      if (this.game.in_check()) {
+      if (this.game.inCheck()) {
         // CHECKMATE
         this.showResult(true, this.getTurn(false));
       }
@@ -201,10 +201,14 @@ class BaseChess {
       }
     }
     else {
-      if (this.gameOver) return;
-      this.changeTurn();
-      this.hideMessage();
+      this.handleNextTurn();
     }
+  }
+
+  handleNextTurn() {
+    if (this.gameOver) return;
+    this.changeTurn();
+    this.hideMessage();
   }
 
   enableInput() {
@@ -213,9 +217,6 @@ class BaseChess {
     $(SQUARE).on('click', (event) => {
       this.squareClicked(event);
     });
-
-    console.log("enabled input");
-    console.log(this.game.turn())
   }
 
   disableInput() {

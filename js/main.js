@@ -27,8 +27,8 @@ let menu = [
     class: Slow
   },
   {
-    title: "AMAZON",
-    class: Amazon
+    title: "AMAZONS",
+    class: Amazons
   },
   // {
   //   title: "PERSONAL",
