@@ -1,4 +1,4 @@
-const SLOW_ANIMATION_DURATION = 2000;
+const SLOW_ANIMATION_DURATION = 15000;
 class Slow extends BaseChess {
     constructor() {
         super();

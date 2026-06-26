@@ -6,6 +6,8 @@
 ## Slow
 - ~~The animation works in a strange way that leaves a huge pause before the sound and turn change, is it some kind of easing? Looks like it may be fixable by using the onMoveEnd, or by removing the 1.1 multiplier I seem to have on the sound effect. But really why would I not base it on the event.~~
 
+- Remember to slow it back down (10? 20? 30?)
+
 ## Amazon
 - ~~Handle checkmate properly with validation stuff~~
 - ~~Handle the case where all queens are captured leading to a Black win~~
@@ -24,6 +26,8 @@
 ## Travelator
 - To do with the order of effects in a for loop that was both removing and adding pieces, needed to separate ~~A piece vanished when I was testing -- seems to be if there are two on the right edge, the first one just goes away!~~
 
+- There are presumably check and other issues in here
+
 ## Correspondence
 
 ## Match 3
@@ -33,7 +37,7 @@
 - Pretty sure there are check and mate issues to investigate
 - Needs a clock sound for the ticks and tocks
 
-# Gave up on
+# 😭 Gave up on
 
 ## Personal
 - Investigate modifying chessboard.js to include a DIV (or span?) around chess piece img and to animate that instead so that I could add stuff to pieces dynamically/on startup (such as the label for pieces in Personal) -- it's sort of "surface doable" but maybe be "technically hellish"?

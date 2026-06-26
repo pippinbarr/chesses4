@@ -149,12 +149,6 @@ function menuClicked(e) {
   // Get the index in the menu of the chosen item
   let index = $(this).data('index');
   currentGame = menu[index];
-  if (currentGame.title === "SLOW") {
-    animationDuration = SLOW_ANIMATION_DURATION;
-  }
-  else {
-    animationDuration = DEFAULT_ANIMATION_DURATION;
-  }
   // Instantiate the associated class
   chess = new currentGame.class(); // Is this hideous? It works...
 
