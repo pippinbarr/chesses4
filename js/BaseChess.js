@@ -126,9 +126,9 @@ class BaseChess {
     // exit if there are no moves available for this square
     if (moves.length === 0) return 0;
 
-    moves.forEach((move) => {
+    for (let move of moves) {
       this.highlight(move.to);
-    });
+    };
 
     return moves.length;
   }

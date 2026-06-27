@@ -2,6 +2,7 @@
 
 ## General
 - Font size stuff for different devices? E.g. on iPhone XR it line breaks Less N Less
+- A generally big question about checking for check pre-move or not, disallowing moves into check with unconventional stuff (e.g. simulating the move and seeing if it ends in check)
 
 ## Slow
 - ~~The animation works in a strange way that leaves a huge pause before the sound and turn change, is it some kind of easing? Looks like it may be fixable by using the onMoveEnd, or by removing the 1.1 multiplier I seem to have on the sound effect. But really why would I not base it on the event.~~
@@ -22,7 +23,7 @@
 
 - There's still some stuff to work out around check and checkmate because you could technically evade check/checkmate via multiple moves -- so need to be able to ignore the rules and then check for them when I want to?
 - Should probably only be checkmate if you finish a turn in check(or mate)?
-- Seem to be losing en passant due to fen() and reloading (may be endemic)
+- Seem to be losing en passant due to fen() and reloading (may be endemic - looks like it)
 
 ## Travelator
 - To do with the order of effects in a for loop that was both removing and adding pieces, needed to separate ~~A piece vanished when I was testing -- seems to be if there are two on the right edge, the first one just goes away!~~

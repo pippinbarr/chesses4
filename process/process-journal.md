@@ -134,3 +134,29 @@ I never worked it out... kept trying to isolate the problem and it seemed more a
 But also felt like a kind of counter-argument to the "letting go" argument where you find a really difficult bug but you *do hold on and keep trying* because things seem sufficiently important to make the effort. How do you know when to do that and when to just give it up? (Like Personal I may give up on pretty fast.) I think it's to do partly with whether the technical problem is something that would/could impact a whole lot of ideas... which this thing of not being able to manage kind of weird/illegal positions felt like it was... there's just a ton of variations you cannot do if you can't arbitrarily change the board setup and have the game continue on.
 
 Anyway this means I'm feeling a bit more positive about things?
+
+## Check 1, Check 2, Did You Get That Check? (27 June 2026)
+
+Okay well a lot of the remains of the project are about dealing with check and checkmate. Is there some sort of overarching principle I can adopt that allows - in the best case - moves to be disallowed based on the different modes, checks to be evaded based on those moves, etc.
+
+Oh also en passant is totally broken because of the way I (need to!) reload the game and board constantly to get around all the janky problems that were coming up (and were fixed by that, which I think is more valuable than en passant in a non-functional game). 
+
+So in principle what you need is:
+
+- Whenever you need to get the possible moves in a position it needs to be based on the movement stuff involved
+- Whenever you make a move it needs to check for check and mate more "manually" than it has been (notably things like check from a knight move in Knights)
+- And whenever you are in check you need to check for the possible moves *out* of check based on the new movement rules
+
+(The "giving up" version is that you allow king captures as the game ender and move on with your life.)
+
+Let's maybe look at this from the perspective of a specific game?
+
+### Knights
+
+Key points: all pieces move like a knight so give check like a knight and guard squares like a knight, but also the king can *escape check* like a knight, and pieces can block check like a knight and they can capture like a knight and can interpose like a knight. e.g. if there's a check, you need to think about all the possible moves that don't result in check based on the knight moves version.
+
+Crucially whenever you run getMoves() it needs to be based on a board where the piece in question is a knight (for specific squares). Or you need to cycle for every square maybe? And make the substitution? (Which I just did in parallel as I think this through.)
+
+So now in theory when you're grabbing all the moves you could *also* check whether the move moves you into check and remove it from the list?
+
+Okay well this is pretty hellish! Will come back to it.
