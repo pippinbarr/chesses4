@@ -1,8 +1,10 @@
 # To-do
 
 ## General
-- Font size stuff for different devices? E.g. on iPhone XR it line breaks Less N Less
+- I tweaked it to be smaller and less beautiful? ~~Font size stuff for different devices? E.g. on iPhone XR it line breaks Less N Less~~
 - I'm pretty clearly pursuing the Hard Mode of this ~~A generally big question about checking for check pre-move or not, disallowing moves into check with unconventional stuff (e.g. simulating the move and seeing if it ends in check)~~
+
+- I guess I never checked for insufficient material? Seems ok
 
 ## Slow
 - ~~The animation works in a strange way that leaves a huge pause before the sound and turn change, is it some kind of easing? Looks like it may be fixable by using the onMoveEnd, or by removing the 1.1 multiplier I seem to have on the sound effect. But really why would I not base it on the event.~~
@@ -20,9 +22,8 @@
 - I still don't know the answer, but it is apparently fixed by reloading the game from its own FEN after every change? ~~Turns out chess.js freaks out when you randomly remove pieces over time?? WHY?~~
 - And a shake added too ~~Need the popping sound~~
 - Yup ~~Seem to be losing en passant due to fen() and reloading (may be endemic - looks like it)~~
-
-- Handle check and checkmate? Could you disappear a piece into checkmate? Is that... funny?
--  Might need to disallow certain disappearing pieces which I think makes not much sense... though does mean you could lose in really weird ways, so maybe more thought
+- ~~Handle check and checkmate? Could you disappear a piece into checkmate? Is that... funny?~~
+- No fun ~~Might need to disallow certain disappearing pieces which I think makes not much sense... though does mean you could lose in really weird ways, so maybe more thought~~
 
 ## Travelator
 - To do with the order of effects in a for loop that was both removing and adding pieces, needed to separate ~~A piece vanished when I was testing -- seems to be if there are two on the right edge, the first one just goes away!~~
@@ -36,8 +37,7 @@
 ## Tick Tock
 - ~~Needs a clock sound for the ticks and tocks~~
 - Way better ~~Improve sound to have subticks~~
-
-- Should probably only be checkmate if you finish a turn in check(or mate)? Increasingly think this is the only way... don't let the kind move into check in the usual way, but do just allow capture king for win
+- ~~Should probably only be checkmate if you finish a turn in check(or mate)? Increasingly think this is the only way... don't let the kind move into check in the usual way, but do just allow capture king for win~~
 
 # 😭 Gave up on
 

@@ -236,7 +236,6 @@ class BaseChess {
 
   changeTurn() {
     if (this.gameOver) return;
-
     this.highlightTurn(this.game.turn());
   }
 

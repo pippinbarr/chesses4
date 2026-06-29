@@ -44,7 +44,7 @@ let menu = [
   },
   {
     title: "LESS-N-LESS",
-    class: Less
+    class: LessNLess
   },
   {
     title: "TICK TOCK",
