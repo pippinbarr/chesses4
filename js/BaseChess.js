@@ -190,7 +190,10 @@ class BaseChess {
 
     let moves = this.getMoves();
 
-    if (moves.length === 0) {
+    if (this.game.findPiece({ type: 'k', color: this.game.turn() }).length === 0) {
+      this.showResult(true, this.getTurn(false));
+    }
+    else if (moves.length === 0) {
       if (this.inCheck(this.game.turn())) {
         // CHECKMATE
         this.showResult(true, this.getTurn(false));

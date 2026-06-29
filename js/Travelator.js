@@ -31,7 +31,6 @@ class Travelator extends BaseChess {
     }
 
     getMoves(square) {
-        console.log(`getMoves(${square}`)
         let options = {
             verbose: true,
             legal: false,
@@ -110,10 +109,10 @@ class Travelator extends BaseChess {
     }
 
     moveCompleted() {
-        super.moveCompleted();
-
         const travelated = this.travelate(this.game);
         this.game.load(travelated.fen());
         this.board.position(this.game.fen(), false);
+
+        super.moveCompleted();
     }
 }

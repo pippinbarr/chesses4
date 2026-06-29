@@ -10,11 +10,63 @@ class Match3 extends BaseChess {
         super.setup();
     }
 
+    getMoves(square) {
+        let options = {
+            verbose: true,
+            legal: false,
+        }
+        let moves = [];
+
+        let currentPiece;
+        if (square) {
+            options.square = square;
+            currentPiece = this.game.get(square);
+            if (!currentPiece) return moves;
+
+            options.legal = false;
+            const squareMoves = this.game.moves(options);
+
+            let legalMoves = [];
+
+            for (let move of squareMoves) {
+                let moveGame = new Chess(this.game.fen(), { skipValidation: true });
+                moveGame.remove(move.from);
+                moveGame.put(currentPiece, move.to);
+                moveGame.load(moveGame.fen(), { skipValidation: true })
+                const match3ed = this.match3ify(moveGame);
+                if (currentPiece.type === 'k') {
+                    console.log(match3ed.ascii());
+                }
+
+                const hasKing = match3ed.findPiece({ type: 'k', color: match3ed.turn() }).length != 0;
+                if (!match3ed.inCheck() && hasKing) {
+                    legalMoves.push(move);
+                }
+            }
+
+            moves.push(...legalMoves);
+        }
+        else {
+            for (let square of SQUARES) {
+                moves.push(...this.getMoves(square));
+            }
+        }
+        return moves;
+    }
+
     moveCompleted() {
+        const match3ed = this.match3ify(this.game);
+        this.game.load(match3ed.fen(), { skipValidation: true });
+        this.board.position(this.game.fen());
+
         super.moveCompleted();
+    }
+
+    match3ify(game) {
+        const match3ed = new Chess(game.fen(), { skipValidation: true });
 
         // Now we need to find any instance of three (or more?) in a row or column
-        const board = this.game.board();
+        const board = match3ed.board();
         let removals = [];
         for (let rank = 0; rank < board.length; rank++) {
             let contiguous = [];
@@ -69,9 +121,10 @@ class Match3 extends BaseChess {
         }
 
         for (let square of removals) {
-            this.game.remove(square);
+            match3ed.remove(square);
         }
-        this.game.load(this.game.fen());
-        this.board.position(this.game.fen())
+        match3ed.load(match3ed.fen(), { skipValidation: true })
+
+        return match3ed;
     }
 }
