@@ -30,25 +30,59 @@ class Travelator extends BaseChess {
         }
     }
 
-    moveCompleted() {
-        super.moveCompleted();
+    getMoves(square) {
+        console.log(`getMoves(${square}`)
+        let options = {
+            verbose: true,
+            legal: false,
+        }
+        let moves = [];
 
-        let travels = [...this.edges];
-        this.edges = [];
-        const edgeRemovals = [];
+        let currentPiece;
+        if (square) {
+            options.square = square;
+            currentPiece = this.game.get(square);
+            if (!currentPiece) return moves;
+
+            options.legal = false;
+            const squareMoves = this.game.moves(options);
+
+            let legalMoves = [];
+
+            for (let move of squareMoves) {
+                let moveGame = new Chess(this.game.fen(), { skipValidation: true });
+                moveGame.remove(move.from);
+                moveGame.put(currentPiece, move.to);
+                moveGame.load(moveGame.fen(), { skipValidation: true })
+                const travelated = this.travelate(moveGame);
+                if (!travelated.inCheck()) {
+                    legalMoves.push(move);
+                }
+            }
+
+            moves.push(...legalMoves);
+        }
+        else {
+            for (let square of SQUARES) {
+                moves.push(...this.getMoves(square));
+            }
+        }
+        return moves;
+    }
+
+    travelate(game) {
+        let travels = [];
 
         for (let r = 0; r < this.travelatorRanks.length; r++) {
-
             const currentRank = this.travelatorRanks[r];
             const transform = this.transforms[r];
 
             for (let file = 0; file < 8; file++) {
-                const piece = this.game.get(`${FILES.charAt(file)}${currentRank}`);
+                const piece = game.get(`${FILES.charAt(file)}${currentRank}`);
                 if (piece) {
                     let toFile = file + transform;
                     if (toFile < 0) {
                         toFile = 7;
-
                     }
                     else if (toFile > 7) {
                         toFile = 0;
@@ -58,21 +92,28 @@ class Travelator extends BaseChess {
                         from: `${FILES.charAt(file)}${currentRank}`,
                         to: `${FILES.charAt(toFile)}${currentRank}`
                     });
-
                 }
             }
         }
 
         // Need to do these two loops separately to avoid interference
         for (let travel of travels) {
-            this.game.remove(travel.from);
+            game.remove(travel.from);
         }
         for (let travel of travels) {
-            this.game.put(travel.piece, travel.to);
+            game.put(travel.piece, travel.to);
         }
 
+        game.load(game.fen(), { skipValidation: true });
 
-        this.game.load(this.game.fen());
+        return game;
+    }
+
+    moveCompleted() {
+        super.moveCompleted();
+
+        const travelated = this.travelate(this.game);
+        this.game.load(travelated.fen());
         this.board.position(this.game.fen(), false);
     }
 }

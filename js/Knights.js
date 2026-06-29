@@ -25,8 +25,6 @@ class Knights extends BaseChess {
             currentPiece = this.game.get(square);
             if (!currentPiece) return moves;
 
-            const kingSquare = this.game.findPiece({ type: 'k', color: this.game.turn() });
-
             this.game.put({
                 type: "n",
                 color: currentPiece.color,
@@ -57,7 +55,6 @@ class Knights extends BaseChess {
             }
 
             moves.push(...legalMoves);
-            console.log(moves);
 
             this.game.put(currentPiece, square);
         }

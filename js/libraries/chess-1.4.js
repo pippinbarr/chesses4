@@ -2344,8 +2344,8 @@ class Chess {
   isGameOver() {
     return this.isCheckmate() || this.isDraw();
   }
-  moves({ verbose = false, square = undefined, piece = undefined, } = {}) {
-    const moves = this._moves({ square, piece });
+  moves({ legal = true, verbose = false, square = undefined, piece = undefined, } = {}) {
+    const moves = this._moves({ legal, square, piece });
     if (verbose) {
       return moves.map((move) => new Move(this, move));
     }
@@ -2490,7 +2490,7 @@ class Chess {
     }
     return legalMoves;
   }
-  move(move, { strict = false } = {}) {
+  move(move, { legal = true, strict = false } = {}) {
     /*
      * The move function can be called with in the following parameters:
      *
@@ -2512,7 +2512,7 @@ class Chess {
       moveObj = this._moveFromSan(SAN_NULLMOVE, strict);
     }
     else if (typeof move === 'object') {
-      const moves = this._moves();
+      const moves = this._moves({ legal: legal });
       // convert the pretty move object to an ugly move object
       for (let i = 0, len = moves.length; i < len; i++) {
         if (move.from === algebraic(moves[i].from) &&

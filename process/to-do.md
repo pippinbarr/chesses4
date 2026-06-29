@@ -14,31 +14,31 @@
 
 ## Knights
 - This went away at some point ~~Moving a king turns them into a knight?~~
-
-- Currently doesn't check for check etc. and I think it has to to be genuinely of interest - the king moving as a knight is especially weird for this?
+- Fairly sure I've solved this? ~~Currently doesn't check for check etc. and I think it has to to be genuinely of interest - the king moving as a knight is especially weird for this?~~
 
 ## Less N Less
 - I still don't know the answer, but it is apparently fixed by reloading the game from its own FEN after every change? ~~Turns out chess.js freaks out when you randomly remove pieces over time?? WHY?~~
 - And a shake added too ~~Need the popping sound~~
+- Yup ~~Seem to be losing en passant due to fen() and reloading (may be endemic - looks like it)~~
 
 - There's still some stuff to work out around check and checkmate because you could technically evade check/checkmate via multiple moves -- so need to be able to ignore the rules and then check for them when I want to?
-- Should probably only be checkmate if you finish a turn in check(or mate)?
-- Seem to be losing en passant due to fen() and reloading (may be endemic - looks like it)
+- Should probably only be checkmate if you finish a turn in check(or mate)? Increasingly think this is the only way... don't let the kind move into check in the usual way, but do just allow capture king for win
+- Otherwise will need to disallow certain disappearing pieces which I think makes not much sense... though does mean you could lose in really weird ways, so maybe more thought
 
 ## Travelator
 - To do with the order of effects in a for loop that was both removing and adding pieces, needed to separate ~~A piece vanished when I was testing -- seems to be if there are two on the right edge, the first one just goes away!~~
 
-- There are presumably check and other issues in here
+- There are presumably check and other issues in here (will need the same kind of "simulation" approach as in Knights). Need to decide whether it's legible to disallow certain moves because they yield check? I think yes.
 
 ## Correspondence
 
 ## Match 3
-- Pretty sure there are check and mate issues to investigate
+- Pretty sure there are check and mate issues to investigate. Need to simulate this? Or do you pretty much have to have captures/matching away the king here? *Are* there even captures in Match 3? If not then impossible to ever win probably. Might be able to do a simulation approach? Can't perform a match that leaves you in check? But matching their king wins of course.
 
 ## Tick Tock
 - ~~Needs a clock sound for the ticks and tocks~~
 
-- Pretty sure there are check and mate issues to investigate
+- Should probably only be checkmate if you finish a turn in check(or mate)? Increasingly think this is the only way... don't let the kind move into check in the usual way, but do just allow capture king for win
 
 # 😭 Gave up on
 
