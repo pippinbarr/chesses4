@@ -21,14 +21,12 @@
 - And a shake added too ~~Need the popping sound~~
 - Yup ~~Seem to be losing en passant due to fen() and reloading (may be endemic - looks like it)~~
 
-- There's still some stuff to work out around check and checkmate because you could technically evade check/checkmate via multiple moves -- so need to be able to ignore the rules and then check for them when I want to?
-- Should probably only be checkmate if you finish a turn in check(or mate)? Increasingly think this is the only way... don't let the kind move into check in the usual way, but do just allow capture king for win
-- Otherwise will need to disallow certain disappearing pieces which I think makes not much sense... though does mean you could lose in really weird ways, so maybe more thought
+- Handle check and checkmate? Could you disappear a piece into checkmate? Is that... funny?
+-  Might need to disallow certain disappearing pieces which I think makes not much sense... though does mean you could lose in really weird ways, so maybe more thought
 
 ## Travelator
 - To do with the order of effects in a for loop that was both removing and adding pieces, needed to separate ~~A piece vanished when I was testing -- seems to be if there are two on the right edge, the first one just goes away!~~
-
-- There are presumably check and other issues in here (will need the same kind of "simulation" approach as in Knights). Need to decide whether it's legible to disallow certain moves because they yield check? I think yes.
+- I... think I got there... ~~There are presumably check and other issues in here (will need the same kind of "simulation" approach as in Knights). Need to decide whether it's legible to disallow certain moves because they yield check? I think yes.~~
 
 ## Correspondence
 

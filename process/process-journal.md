@@ -160,3 +160,13 @@ Crucially whenever you run getMoves() it needs to be based on a board where the 
 So now in theory when you're grabbing all the moves you could *also* check whether the move moves you into check and remove it from the list?
 
 Okay well this is pretty hellish! Will come back to it.
+
+## Knowledge of the board, knowledge in the board (29 June 2026)
+
+Been chowing away and seem to have both Knights and Travelator recognizing and representing possible moves and checkmate and so on correctly now. Generally involves manually simulating moves in order to discover illegalities and so on. Which is fine. It did lose me en passant because I basically need to operate at the level of board states rather than game states.
+
+In thinking about doing the same for Match3 it increasingly occurs to me that there's a thing going on here with computer chess where the videogame stores a lot of knowledge about the results of these more complex operations... it's like a moment of change between social enforcement of rules (you don't make a matching move because you can see it would leave you in check) versus computational enforcement (you cannot make that move in the first place, even if you can't immediately understand why). There's a sense in which the video game "dumbs down" the experience because it calculates for you... but there's a sense in which is increases accessibility and also invites you to think about *why* a move is illegal despite perhaps looking legal to you. Could end up, for instance, with a bishop with a broken path of possible squares (because one would match pieces that would reveal a check).
+
+This is revolves a bit around one of my eternal quests to have players be "in on it" and encouraged to think about the materials of play. In getting a computer to enforce rules you allow the player to come up against them in a more "frictive" way? So that they're maybe more likely to think about it than just being told the rules and going about it (and possibly missing things because of it). There's a pleasure to muddling through, too, but that's the strength of over the board chess.
+
+Anyway I think this moment is kind of nice in thinking through how analog and digital are different? And about my interest in how you invite players to grapple with game materiality.
