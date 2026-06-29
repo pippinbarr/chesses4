@@ -28,12 +28,9 @@ let menu = [
   },
   {
     title: "AMAZONS",
-    class: Amazons
+    class: Amazons,
+    info: "Amazons win on checkmate, black wins if all Amazons are captured."
   },
-  // {
-  //   title: "PERSONAL",
-  //   class: Personal
-  // },
   {
     title: "CORRESPOND",
     class: Correspondence,
@@ -52,7 +49,8 @@ let menu = [
   },
   {
     title: "MATCH3",
-    class: Match3
+    class: Match3,
+    info: "Co-designed with Jonathan Lessard."
   },
   {
     title: "TRAVELATOR",
