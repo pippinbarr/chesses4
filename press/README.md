@@ -27,7 +27,7 @@ I started making *Chesses 4* because I was in a bit of a lull creative and I oft
 As such, *Chesses 4* is another data-point in the ultra-detailed process documentation approach called the [Method for Design Materialization (MDM)](http://materializing.design). So, if you want to, you can read a lot about the game's development by reading its [process documentation](https://pippinbarr.com/chesses4/process) and by going through its [commit history](https://github.com/pippinbarr/chesses4/commits/main).
 
 ## Technology
-*Chesses 4* was made with the crucial aid of [chess.js](https://github.com/jhlywa/chess.js) and [chessboard.js](https://www.chessboardjs.com/) as well as the somewhat antiquated assistance of [jQuery](https://jquery.com/) and [jQuery UI](https://jqueryui.com/) and [Howler.js](https://howlerjs.com/) came along for the ride too.
+*Chesses 4* was made with the crucial aid of [chess.js](https://github.com/jhlywa/chess.js) and [chessboard.js](https://www.chessboardjs.com/) as well as the somewhat antiquated assistance of [jQuery](https://jquery.com/) and [jQuery UI](https://jqueryui.com/). And [Howler.js](https://howlerjs.com/) came along for the ride too!
 
 ## Features
 
