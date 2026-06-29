@@ -170,3 +170,11 @@ In thinking about doing the same for Match3 it increasingly occurs to me that th
 This is revolves a bit around one of my eternal quests to have players be "in on it" and encouraged to think about the materials of play. In getting a computer to enforce rules you allow the player to come up against them in a more "frictive" way? So that they're maybe more likely to think about it than just being told the rules and going about it (and possibly missing things because of it). There's a pleasure to muddling through, too, but that's the strength of over the board chess.
 
 Anyway I think this moment is kind of nice in thinking through how analog and digital are different? And about my interest in how you invite players to grapple with game materiality.
+
+## Done-ish? (29 June 2026)
+
+As near as I can tell this game is "done"? As in, I think every mode does what it's meant to do pretty successfully, with the great loss of en passant (and perhaps some other quirks 😬?).
+
+Kind of neat. Took two weeks? As these games tend to?
+
+Need to do some more big reflection particularly on how this maybe helps me move bookward next?

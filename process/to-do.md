@@ -3,8 +3,8 @@
 ## General
 - I tweaked it to be smaller and less beautiful? ~~Font size stuff for different devices? E.g. on iPhone XR it line breaks Less N Less~~
 - I'm pretty clearly pursuing the Hard Mode of this ~~A generally big question about checking for check pre-move or not, disallowing moves into check with unconventional stuff (e.g. simulating the move and seeing if it ends in check)~~
-
-- I guess I never checked for insufficient material? Seems ok
+- Yeah I don't think I give a shit. ~~I guess I never checked for insufficient material? Seems ok~~
+- ~~Oh en passant, so sad~~
 
 ## Slow
 - ~~The animation works in a strange way that leaves a huge pause before the sound and turn change, is it some kind of easing? Looks like it may be fixable by using the onMoveEnd, or by removing the 1.1 multiplier I seem to have on the sound effect. But really why would I not base it on the event.~~
