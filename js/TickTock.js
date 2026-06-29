@@ -16,33 +16,33 @@ class TickTock extends BaseChess {
 
         super.setup();
 
-        // setTimeout(() => {
-        // this.tick = true;
-        // tickSFX.play();
+        this.ticks = 0;
+        this.ticksPerTock = 4;
         this.clock = setInterval(() => {
             this.tickTock();
-        }, 4000);
-        // }, 250);
+        }, 1000);
 
     }
 
     tickTock() {
-        this.currentTurn = this.currentTurn === 'w' ? 'b' : 'w'
-        this.game.setTurn(this.currentTurn);
-        this.clearHighlights();
-        super.changeTurn();
+        this.ticks++;
+
+        if (this.ticks === 4) {
+            tickSFX.play();
+            this.ticks = 0;
+            this.currentTurn = this.currentTurn === 'w' ? 'b' : 'w'
+            this.game.setTurn(this.currentTurn);
+            this.clearHighlights();
+            super.changeTurn();
+        }
+        else {
+            tockSFX.play();
+        }
     }
 
     highlightTurn() {
         super.highlightTurn(this.game.turn(), () => {
-            this.tick = !this.tick;
-            if (this.tick) {
-                tickSFX.play();
-            }
-            else {
-                tockSFX.play();
-            }
-        })
+        }, 0)
     }
 
     squareClicked(event) {
@@ -50,13 +50,34 @@ class TickTock extends BaseChess {
     }
 
     move(from, to, silent = false) {
-        super.move(from, to, silent);
+        super.move(from, to, silent, true);
     }
 
     moveCompleted() {
         super.moveCompleted();
-        this.game.setTurn(this.currentTurn);
+        console.log(this.game.turn(), this.currentTurn)
+        if (this.game.turn() !== this.currentTurn) {
+            console.log("Fake move")
+            this.game.move(`--`, { legal: false });
+        }
         this.enableInput();
+    }
+
+    getMoves(square) {
+        let options = {
+            verbose: true,
+        }
+        if (square !== undefined) options.square = square;
+        options.legal = false;
+        let moves = this.game.moves(options);
+        const legalMoves = [];
+        for (let move of moves) {
+            const attackers = this.game.attackers(move.to, this.game.turn() === 'w' ? 'b' : 'w');
+            if (move.piece !== 'k' || attackers.length === 0) {
+                legalMoves.push(move);
+            }
+        }
+        return legalMoves;
     }
 
     changeTurn() {

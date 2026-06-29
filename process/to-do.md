@@ -2,7 +2,7 @@
 
 ## General
 - Font size stuff for different devices? E.g. on iPhone XR it line breaks Less N Less
-- A generally big question about checking for check pre-move or not, disallowing moves into check with unconventional stuff (e.g. simulating the move and seeing if it ends in check)
+- I'm pretty clearly pursuing the Hard Mode of this ~~A generally big question about checking for check pre-move or not, disallowing moves into check with unconventional stuff (e.g. simulating the move and seeing if it ends in check)~~
 
 ## Slow
 - ~~The animation works in a strange way that leaves a huge pause before the sound and turn change, is it some kind of easing? Looks like it may be fixable by using the onMoveEnd, or by removing the 1.1 multiplier I seem to have on the sound effect. But really why would I not base it on the event.~~
@@ -31,10 +31,11 @@
 ## Correspondence
 
 ## Match 3
-- Pretty sure there are check and mate issues to investigate. Need to simulate this? Or do you pretty much have to have captures/matching away the king here? *Are* there even captures in Match 3? If not then impossible to ever win probably. Might be able to do a simulation approach? Can't perform a match that leaves you in check? But matching their king wins of course.
+- Looks like it works (if I don't look too hard?) ~~Pretty sure there are check and mate issues to investigate. Need to simulate this? Or do you pretty much have to have captures/matching away the king here? *Are* there even captures in Match 3? If not then impossible to ever win probably. Might be able to do a simulation approach? Can't perform a match that leaves you in check? But matching their king wins of course.~~
 
 ## Tick Tock
 - ~~Needs a clock sound for the ticks and tocks~~
+- Way better ~~Improve sound to have subticks~~
 
 - Should probably only be checkmate if you finish a turn in check(or mate)? Increasingly think this is the only way... don't let the kind move into check in the usual way, but do just allow capture king for win
 

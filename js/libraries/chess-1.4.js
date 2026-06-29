@@ -2534,7 +2534,7 @@ class Chess {
     }
     //disallow null moves when in check
     if (this.isCheck() && moveObj.flags & BITS.NULL_MOVE) {
-      throw new Error('Null move not allowed when in check');
+      // throw new Error('Null move not allowed when in check');
     }
     /*
      * need to make a copy of move because we can't generate SAN after the move

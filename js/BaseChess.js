@@ -240,7 +240,7 @@ class BaseChess {
     this.highlightTurn(this.game.turn());
   }
 
-  highlightTurn(turn, complete) {
+  highlightTurn(turn, complete = () => { }, speed = 250) {
     let to = 'blackTurn';
     let from = 'whiteTurn';
 
@@ -249,8 +249,8 @@ class BaseChess {
       from = 'blackTurn';
     }
 
-    $('.board-b72b1').removeClass(from, 250);
-    $('.board-b72b1').addClass(to, 250, () => {
+    $('.board-b72b1').removeClass(from, speed);
+    $('.board-b72b1').addClass(to, speed, () => {
       this.enableInput();
       this.clearHighlights();
       this.from = null;
