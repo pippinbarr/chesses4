@@ -10,13 +10,17 @@ class LessNLess extends BaseChess {
     }
 
     setup() {
-        // this.startFEN = "k7/2K5/8/8/8/8/1Q6/8 w - - 0 1";
+        // this.startFEN = "4k3/8/8/4r3/8/8/4Q3/K7 w - - 0 1";
         // this.boardConfig.position = this.startFEN;
 
         super.setup();
     }
 
-    handleNextTurn() {
+    moveCompleted() {
+        this.handlePopping();
+    }
+
+    handlePopping() {
         this.moves++;
 
         // Every three moves pop a piece
@@ -33,7 +37,7 @@ class LessNLess extends BaseChess {
             }, 250);
         }
         else {
-            super.handleNextTurn();
+            super.moveCompleted();
         }
     }
 
@@ -54,14 +58,7 @@ class LessNLess extends BaseChess {
                 this.game.remove(square);
                 this.game.load(this.game.fen());
                 this.board.position(this.game.fen());
-
-                // Check for check?
-                if (this.game.inCheck()) {
-                    this.showResult(true, this.getTurn(false))
-                }
-                else {
-                    super.handleNextTurn();
-                }
+                super.moveCompleted()
             }
         });
     }

@@ -178,6 +178,7 @@ class BaseChess {
   }
 
   moveCompleted() {
+    console.log("moveCompleted", this.game.turn())
     if (this.currentMove && (this.currentMove.flags.indexOf('c') !== -1 || this.currentMove.flags.indexOf('e') !== -1)) {
       captureSFX.play();
     }
@@ -190,8 +191,13 @@ class BaseChess {
 
     let moves = this.getMoves();
 
+    const otherKingSquare = this.game.findPiece({ type: 'k', color: this.getTurn(false) })[0];
+    console.log(otherKingSquare)
     if (this.game.findPiece({ type: 'k', color: this.game.turn() }).length === 0) {
       this.showResult(true, this.getTurn(false));
+    }
+    else if (this.game.isAttacked(otherKingSquare, this.game.turn())) {
+      this.showResult(true, this.getTurn(true));
     }
     else if (moves.length === 0) {
       if (this.inCheck(this.game.turn())) {

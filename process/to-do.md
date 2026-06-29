@@ -24,6 +24,7 @@
 - Yup ~~Seem to be losing en passant due to fen() and reloading (may be endemic - looks like it)~~
 - ~~Handle check and checkmate? Could you disappear a piece into checkmate? Is that... funny?~~
 - No fun ~~Might need to disallow certain disappearing pieces which I think makes not much sense... though does mean you could lose in really weird ways, so maybe more thought~~
+- ~~Edge case: You get checkmated but then the checkmating piece vanishes (or do we argue for the idea that you're still mated on that players turn? It seems to funny to lose the idea of your mating piece popping away...)~~
 
 ## Travelator
 - To do with the order of effects in a for loop that was both removing and adding pieces, needed to separate ~~A piece vanished when I was testing -- seems to be if there are two on the right edge, the first one just goes away!~~
