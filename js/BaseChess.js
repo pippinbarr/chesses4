@@ -191,7 +191,7 @@ class BaseChess {
     let moves = this.getMoves();
 
     if (moves.length === 0) {
-      if (this.game.inCheck()) {
+      if (this.inCheck(this.game.turn())) {
         // CHECKMATE
         this.showResult(true, this.getTurn(false));
       }
@@ -203,6 +203,10 @@ class BaseChess {
     else {
       this.handleNextTurn();
     }
+  }
+
+  inCheck() {
+    return this.game.inCheck();
   }
 
   handleNextTurn() {
