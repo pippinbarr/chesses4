@@ -1,5 +1,10 @@
 # To-do
 
+## Final pass
+
+- SFX and VFX for match 3 matches
+- SFX for travelators activating?
+
 ## General
 - I tweaked it to be smaller and less beautiful? ~~Font size stuff for different devices? E.g. on iPhone XR it line breaks Less N Less~~
 - I'm pretty clearly pursuing the Hard Mode of this ~~A generally big question about checking for check pre-move or not, disallowing moves into check with unconventional stuff (e.g. simulating the move and seeing if it ends in check)~~

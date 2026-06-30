@@ -178,3 +178,15 @@ As near as I can tell this game is "done"? As in, I think every mode does what i
 Kind of neat. Took two weeks? As these games tend to?
 
 Need to do some more big reflection particularly on how this maybe helps me move bookward next?
+
+## Done-isher? (30 June 2026)
+
+It's the 30th of June and I have zero days remaining of being chair of my department. AND I think I've finished off Chesses 4 in a tidy little two weeks of work. Which genuinely feels really nice. The chesses themselves are... totally fine, almost doesn't matter to me. I don't feel like any of them are making me laugh quite as much as I'd like, but it's often like that at this stage and I seem to remember chuckling about them earlier in the process when they were fresher and before I switched to become Implementation Man. 
+
+So I should write another Why and I should spare a thought for the closing statement (which MIGHT be a way for me to sneakily do some book writing, which is kind of why I started this game in the first place).
+
+As ever in these dry patches it's such a relief to just make something whether or not it's great and inspiring. It's really helps psychologically just put the hands on the material and to jiggle them around.
+
+Just texted Jonathan about making the match 3 and thinking of the game made me want/need a cool sound for the match. And maybe a little animation as well (can just do the same jiggle as less n less?)
+
+It feels good to make stuff. It just does. Thank god for making stuff. 
