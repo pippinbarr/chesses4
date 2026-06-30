@@ -1,9 +1,9 @@
 # To-do
 
 ## Final pass
-
-- SFX and VFX for match 3 matches
-- SFX for travelators activating?
+- Just the standard move sound makes sense ~~SFX for travelators activating?~~
+- ~~SFX and VFX for match 3 matches~~
+- ~~WAV/MP3 conversions for compatabilities~~
 
 ## General
 - I tweaked it to be smaller and less beautiful? ~~Font size stuff for different devices? E.g. on iPhone XR it line breaks Less N Less~~

@@ -35,7 +35,7 @@ class Correspondence extends BaseChess {
                     ${this.moveNumber}. ... ${this.moveSAN}.</p>
                     <p>
                     </p>
-                    <p>I'll respond to the first move sent and update this game on my website.</p>`);
+                    <p>I'll respond to the first move sent and update this game here.</p>`);
                     $("#correspond-box").slideDown();
                 }, 1000);
             }

@@ -1,5 +1,5 @@
 const popSFX = new Howl({
-    src: ['assets/sounds/pop.wav',]// 'assets/sounds/attack.mp3']
+    src: ['assets/sounds/pop.wav', 'assets/sounds/pop.mp3']
 });
 
 class LessNLess extends BaseChess {

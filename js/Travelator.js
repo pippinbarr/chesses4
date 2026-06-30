@@ -109,10 +109,21 @@ class Travelator extends BaseChess {
     }
 
     moveCompleted() {
-        const travelated = this.travelate(this.game);
-        this.game.load(travelated.fen());
-        this.board.position(this.game.fen(), false);
+        if (this.currentMove && (this.currentMove.flags.indexOf('c') !== -1 || this.currentMove.flags.indexOf('e') !== -1)) {
+            captureSFX.play();
+        }
+        else {
+            placeSFX.play();
+        }
 
-        super.moveCompleted();
+        setTimeout(() => {
+            const travelated = this.travelate(this.game);
+            this.game.load(travelated.fen());
+            this.board.position(this.game.fen(), false);
+            placeSFX.play();
+
+            super.moveCompleted(true);
+        }, 500);
+
     }
 }

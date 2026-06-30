@@ -1,3 +1,18 @@
+const candyPopSFX = new Howl({
+    src: ['assets/sounds/candy-pop.wav', 'assets/sounds/candy-pop.mp3']
+});
+const candySweetSFX = new Howl({
+    src: ['assets/sounds/sweet.wav', 'assets/sounds/sweet.mp3']
+});
+const candyDivineSFX = new Howl({
+    src: ['assets/sounds/divine.wav', 'assets/sounds/divine.mp3']
+});
+const candySugarCrushSFX = new Howl({
+    src: ['assets/sounds/sugar-crush.wav', 'assets/sounds/sugar-crush.mp3']
+});
+
+const candyEmphases = [candySweetSFX, candyDivineSFX, candySugarCrushSFX];
+
 class Match3 extends BaseChess {
     constructor() {
         super();
@@ -33,10 +48,7 @@ class Match3 extends BaseChess {
                 moveGame.remove(move.from);
                 moveGame.put(currentPiece, move.to);
                 moveGame.load(moveGame.fen(), { skipValidation: true })
-                const match3ed = this.match3ify(moveGame);
-                if (currentPiece.type === 'k') {
-                    console.log(match3ed.ascii());
-                }
+                const match3ed = this.match3ify(moveGame).game;
 
                 const hasKing = match3ed.findPiece({ type: 'k', color: match3ed.turn() }).length != 0;
                 if (!match3ed.inCheck() && hasKing) {
@@ -55,12 +67,59 @@ class Match3 extends BaseChess {
     }
 
     moveCompleted() {
-        const match3ed = this.match3ify(this.game);
-        this.game.load(match3ed.fen(), { skipValidation: true });
-        this.board.position(this.game.fen());
+        // Play the move sound
+        if (this.currentMove && (this.currentMove.flags.indexOf('c') !== -1 || this.currentMove.flags.indexOf('e') !== -1)) {
+            captureSFX.play();
+        }
+        else {
+            placeSFX.play();
+        }
 
-        super.moveCompleted();
+        // Wait then enact the match
+        setTimeout(() => {
+            const result = this.match3ify(this.game);
+
+            const match3ed = result.game;
+
+            this.popPieces(result.removals, () => {
+                this.game.load(match3ed.fen(), { skipValidation: true });
+                this.board.position(this.game.fen());
+                super.moveCompleted(true);
+            });
+
+        }, 500);
     }
+
+    popPieces(removals, complete) {
+        for (let square of removals) {
+            console.log(removals)
+            const $piece = $(`.square-${square} img`);
+            $piece.effect({
+                effect: "shake",
+                direction: "left",
+                distance: 3,
+                times: 7,
+                duration: 500,
+                complete: () => {
+                    this.game.remove(square);
+                }
+            });
+        }
+        setTimeout(() => {
+            if (removals.length > 0) {
+                candyPopSFX.play();
+
+                if (Math.random() < 0.25) {
+                    setTimeout(() => {
+                        const sfx = candyEmphases[Math.floor(Math.random() * candyEmphases.length)];
+                        sfx.play();
+                    }, 500);
+                }
+            }
+            complete();
+        }, 500);
+    }
+
 
     match3ify(game) {
         const match3ed = new Chess(game.fen(), { skipValidation: true });
@@ -77,7 +136,9 @@ class Match3 extends BaseChess {
                 else if (contiguous.length >= 3) {
                     // Finished the match: remove all the contiguous squares
                     for (let square of contiguous) {
-                        removals.push(square);
+                        if (removals.indexOf(square) === -1) {
+                            removals.push(square);
+                        }
                     }
                     contiguous = [];
                 }
@@ -89,7 +150,9 @@ class Match3 extends BaseChess {
             if (contiguous.length >= 3) {
                 // Finished the match: remove all the contiguous squares
                 for (let square of contiguous) {
-                    removals.push(square);
+                    if (removals.indexOf(square) === -1) {
+                        removals.push(square);
+                    }
                 }
             }
         }
@@ -103,7 +166,9 @@ class Match3 extends BaseChess {
                 else if (contiguous.length >= 3) {
                     // Match - remove all the contiguous squares
                     for (let square of contiguous) {
-                        removals.push(square);
+                        if (removals.indexOf(square) === -1) {
+                            removals.push(square);
+                        }
                     }
                     contiguous = [];
                 }
@@ -115,7 +180,9 @@ class Match3 extends BaseChess {
             if (contiguous.length >= 3) {
                 // Finished the match: remove all the contiguous squares
                 for (let square of contiguous) {
-                    removals.push(square);
+                    if (removals.indexOf(square) === -1) {
+                        removals.push(square);
+                    }
                 }
             }
         }
@@ -125,6 +192,24 @@ class Match3 extends BaseChess {
         }
         match3ed.load(match3ed.fen(), { skipValidation: true })
 
-        return match3ed;
+        return {
+            game: match3ed,
+            removals: removals
+        }
     }
+
+    checkResult() {
+        const result = super.checkResult();
+
+        // Override standard results for a matched king
+        if (this.game.findPiece({ type: 'k', color: this.game.turn() }).length === 0) {
+            result.defined = true;
+            result.win = true;
+            result.color = this.getTurn(false);
+            result.description = "No king for current player"
+        }
+
+        return result;
+    }
+
 }

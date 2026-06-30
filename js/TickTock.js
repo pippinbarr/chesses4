@@ -1,9 +1,9 @@
 const tickSFX = new Howl({
-    src: ['assets/sounds/tick.wav',]// 'assets/sounds/attack.mp3']
+    src: ['assets/sounds/tick.wav', 'assets/sounds/tick.mp3']
 });
 
 const tockSFX = new Howl({
-    src: ['assets/sounds/tock.wav',]// 'assets/sounds/attack.mp3']
+    src: ['assets/sounds/tock.wav', 'assets/sounds/tock.mp3']
 });
 
 class TickTock extends BaseChess {

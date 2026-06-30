@@ -176,14 +176,16 @@ class BaseChess {
     $('.square-' + square).addClass(`highlight1-32417`);
   }
 
-  moveCompleted() {
+  moveCompleted(mute = false) {
 
     // SFX
-    if (this.currentMove && (this.currentMove.flags.indexOf('c') !== -1 || this.currentMove.flags.indexOf('e') !== -1)) {
-      captureSFX.play();
-    }
-    else {
-      placeSFX.play();
+    if (!mute) {
+      if (this.currentMove && (this.currentMove.flags.indexOf('c') !== -1 || this.currentMove.flags.indexOf('e') !== -1)) {
+        captureSFX.play();
+      }
+      else {
+        placeSFX.play();
+      }
     }
 
     // Resets
