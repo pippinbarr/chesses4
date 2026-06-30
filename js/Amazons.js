@@ -1,6 +1,8 @@
 
-// const AMAZON_FEN = "rnbqkbnr/pppppppp/8/8/8/8/QQQQQQQQ/QQQQQQQQ w kq - 0 1";
-const AMAZON_FEN = "rnbqkbnr/pppppppp/8/8/8/8/7Q/8 w kq - 0 1";
+const AMAZON_FEN = "rnbqkbnr/pppppppp/8/8/8/8/QQQQQQQQ/QQQQQQQQ w kq - 0 1";
+
+// FEN to test losing all queens (just one)
+// const AMAZON_FEN = "rnbqkbnr/pppppppp/8/8/8/8/7Q/8 w kq - 0 1";
 
 class Amazons extends BaseChess {
     constructor() {
