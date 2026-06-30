@@ -1,6 +1,6 @@
 
-const AMAZON_FEN = "rnbqkbnr/pppppppp/8/8/8/8/QQQQQQQQ/QQQQQQQQ w kq - 0 1";
-// const AMAZON_FEN = "rnbqkbnr/pppppppp/8/8/8/8/7Q/8 w kq - 0 1";
+// const AMAZON_FEN = "rnbqkbnr/pppppppp/8/8/8/8/QQQQQQQQ/QQQQQQQQ w kq - 0 1";
+const AMAZON_FEN = "rnbqkbnr/pppppppp/8/8/8/8/7Q/8 w kq - 0 1";
 
 class Amazons extends BaseChess {
     constructor() {
@@ -13,15 +13,27 @@ class Amazons extends BaseChess {
         this.startFEN = AMAZON_FEN;
 
         super.setup();
+    }
 
-        // this.game.load(this.startFEN, this.gameConfig);
-        // this.board.position(amazonFEN);
+    checkResult() {
+        const result = super.checkResult();
+
+        // Override result for the no queens version
+        if (this.game.findPiece({ type: 'q', color: 'w' }).length === 0) {
+            // No queens
+            result.defined = true;
+            result.win = true;
+            result.color = 'b';
+            result.description = "No white queens left on the board."
+        }
+
+        return result;
     }
 
     getMoves(square) {
         let options = {
             verbose: true,
-            legal: (this.game.turn() === "w")
+            legal: !(this.game.turn() === "w")
         }
         if (square !== undefined) options.square = square;
         let moves = this.game.moves(options);
@@ -33,12 +45,6 @@ class Amazons extends BaseChess {
     }
 
     showResult(win, color) {
-        if (this.game.findPiece({ type: 'q', color: 'w' }).length === 0) {
-            // No queens
-            super.showResult(true, 'b');
-        }
-        else {
-            super.showResult(win, color);
-        }
+        super.showResult(win, color);
     }
 }

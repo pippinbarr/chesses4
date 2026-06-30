@@ -103,7 +103,6 @@ class BaseChess {
       }
       else if ($(event.currentTarget).hasClass('highlight1-32417')) {
         let to = $(event.currentTarget).attr('data-square');
-        // console.log(this.from, to)
         this.move(this.from, to);
       };
     }
@@ -178,7 +177,8 @@ class BaseChess {
   }
 
   moveCompleted() {
-    console.log("moveCompleted", this.game.turn())
+
+    // SFX
     if (this.currentMove && (this.currentMove.flags.indexOf('c') !== -1 || this.currentMove.flags.indexOf('e') !== -1)) {
       captureSFX.play();
     }
@@ -186,32 +186,55 @@ class BaseChess {
       placeSFX.play();
     }
 
+    // Resets
     this.from = null;
     this.currentMove = null;
 
-    let moves = this.getMoves();
-
-    const otherKingSquare = this.game.findPiece({ type: 'k', color: this.getTurn(false) })[0];
-    console.log(otherKingSquare)
-    if (this.game.findPiece({ type: 'k', color: this.game.turn() }).length === 0) {
-      this.showResult(true, this.getTurn(false));
-    }
-    else if (this.game.isAttacked(otherKingSquare, this.game.turn())) {
-      this.showResult(true, this.getTurn(true));
-    }
-    else if (moves.length === 0) {
-      if (this.inCheck(this.game.turn())) {
-        // CHECKMATE
-        this.showResult(true, this.getTurn(false));
-      }
-      else {
-        // STALEMATE
-        this.showResult(false);
-      }
+    // Check for end condition
+    const result = this.checkResult();
+    if (result.defined) {
+      console.log(result);
+      this.showResult(result.win, result.color);
     }
     else {
       this.handleNextTurn();
     }
+  }
+
+  checkResult() {
+    const result = {
+      defined: false,
+      win: undefined,
+      color: undefined,
+      description: "No result"
+    };
+
+    let moves = this.getMoves();
+    const otherKingSquare = this.game.findPiece({ type: 'k', color: this.getTurn(false) })[0];
+
+
+    if (this.game.isAttacked(otherKingSquare, this.game.turn())) {
+      result.defined = true;
+      result.win = true;
+      result.color = this.getTurn(true);
+      result.description = "Already sttacking the enemy king on turn"
+    }
+    else if (moves.length === 0) {
+      if (this.inCheck(this.game.turn())) {
+        // CHECKMATE
+        result.defined = true;
+        result.win = true;
+        result.color = this.getTurn(false);
+        result.description = "Standard checkmate (no moves and in check)"
+      }
+      else {
+        // STALEMATE
+        result.defined = true;
+        result.win = false;
+        result.description = "Standard stalemate (no moves and not in check)"
+      }
+    }
+    return result;
   }
 
   inCheck() {
@@ -236,8 +259,6 @@ class BaseChess {
     if (this.inputEnabled === false) return;
     this.inputEnabled = false;
     $(SQUARE).off('click');
-
-    console.log("disabled input");
   }
 
   changeTurn() {

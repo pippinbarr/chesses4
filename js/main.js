@@ -34,6 +34,7 @@ let menu = [
   {
     title: "CORRESPOND",
     class: Correspondence,
+    info: "I'll get back to you."
   },
   {
     title: "KNIGHTS",
@@ -44,8 +45,9 @@ let menu = [
     class: LessNLess
   },
   {
-    title: "TICK TOCK",
-    class: TickTock
+    title: "TICK-TOCK",
+    class: TickTock,
+    info: "Make as many moves as you have time for. You can capture the opposing king to win."
   },
   {
     title: "MATCH3",
@@ -54,8 +56,8 @@ let menu = [
   },
   {
     title: "TRAVELATOR",
-    info: "Oh my.",
-    class: Travelator
+    class: Travelator,
+    info: "Pieces travelate after each move.",
   },
 ];
 
@@ -177,9 +179,10 @@ function menuClicked(e) {
   }))
     .then(() => {
       // Listen for click events on the info icon and display the panel if so
-      $('.info').on('click', function (e) {
+      $('.info').off('click').on('click', function (e) {
         // Don't interpret it as a click on anything else
         e.stopPropagation();
+        console.log("Info Click")
         // If the panel isn't visible, put in the correct info and slide it down
         if (!$('.info-panel').is(':visible')) {
           $('.info-text').html(`<p>${$(this).parent().data('info')}</p>`);

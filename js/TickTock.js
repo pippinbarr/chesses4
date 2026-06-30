@@ -84,6 +84,24 @@ class TickTock extends BaseChess {
 
     }
 
+    checkResult() {
+        const result = super.checkResult();
+
+        // Override standard results for the captured king
+        if (this.game.findPiece({ type: 'k', color: this.game.turn() }).length === 0) {
+            result.defined = true;
+            result.win = true;
+            result.color = this.getTurn(false);
+            result.description = "No king for current player"
+        }
+
+        if (result.defined) {
+            clearInterval(this.clock);
+        }
+
+        return result;
+    }
+
     quit() {
         clearInterval(this.clock);
     }
