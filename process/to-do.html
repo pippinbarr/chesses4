@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>To-do | Chesses 4</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="To-do" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="♟️♟️♟️♟️" />
+<meta property="og:description" content="♟️♟️♟️♟️" />
+<link rel="canonical" href="http://pippinbarr.com/chesses4/process/to-do.html" />
+<meta property="og:url" content="http://pippinbarr.com/chesses4/process/to-do.html" />
+<meta property="og:site_name" content="Chesses 4" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="To-do" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"♟️♟️♟️♟️","headline":"To-do","url":"http://pippinbarr.com/chesses4/process/to-do.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/chesses4/assets/css/style.css">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/chesses4/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      
+
+      <h1 id="to-do">To-do</h1>
+
+<h2 id="final-pass">Final pass</h2>
+<ul>
+  <li>Just the standard move sound makes sense <del>SFX for travelators activating?</del></li>
+  <li><del>SFX and VFX for match 3 matches</del></li>
+  <li><del>WAV/MP3 conversions for compatabilities</del></li>
+</ul>
+
+<h2 id="general">General</h2>
+<ul>
+  <li>I tweaked it to be smaller and less beautiful? <del>Font size stuff for different devices? E.g. on iPhone XR it line breaks Less N Less</del></li>
+  <li>I’m pretty clearly pursuing the Hard Mode of this <del>A generally big question about checking for check pre-move or not, disallowing moves into check with unconventional stuff (e.g. simulating the move and seeing if it ends in check)</del></li>
+  <li>Yeah I don’t think I give a shit. <del>I guess I never checked for insufficient material? Seems ok</del></li>
+  <li><del>Oh en passant, so sad</del></li>
+</ul>
+
+<h2 id="slow">Slow</h2>
+<ul>
+  <li><del>The animation works in a strange way that leaves a huge pause before the sound and turn change, is it some kind of easing? Looks like it may be fixable by using the onMoveEnd, or by removing the 1.1 multiplier I seem to have on the sound effect. But really why would I not base it on the event.</del></li>
+  <li>Trying 15 seconds on for size <del>Remember to slow it back down (10? 20? 30?)</del></li>
+</ul>
+
+<h2 id="amazon">Amazon</h2>
+<ul>
+  <li><del>Handle checkmate properly with validation stuff</del></li>
+  <li><del>Handle the case where all queens are captured leading to a Black win</del></li>
+</ul>
+
+<h2 id="knights">Knights</h2>
+<ul>
+  <li>This went away at some point <del>Moving a king turns them into a knight?</del></li>
+  <li>Fairly sure I’ve solved this? <del>Currently doesn’t check for check etc. and I think it has to to be genuinely of interest - the king moving as a knight is especially weird for this?</del></li>
+</ul>
+
+<h2 id="less-n-less">Less N Less</h2>
+<ul>
+  <li>I still don’t know the answer, but it is apparently fixed by reloading the game from its own FEN after every change? <del>Turns out chess.js freaks out when you randomly remove pieces over time?? WHY?</del></li>
+  <li>And a shake added too <del>Need the popping sound</del></li>
+  <li>Yup <del>Seem to be losing en passant due to fen() and reloading (may be endemic - looks like it)</del></li>
+  <li><del>Handle check and checkmate? Could you disappear a piece into checkmate? Is that… funny?</del></li>
+  <li>No fun <del>Might need to disallow certain disappearing pieces which I think makes not much sense… though does mean you could lose in really weird ways, so maybe more thought</del></li>
+  <li><del>Edge case: You get checkmated but then the checkmating piece vanishes (or do we argue for the idea that you’re still mated on that players turn? It seems to funny to lose the idea of your mating piece popping away…)</del></li>
+</ul>
+
+<h2 id="travelator">Travelator</h2>
+<ul>
+  <li>To do with the order of effects in a for loop that was both removing and adding pieces, needed to separate <del>A piece vanished when I was testing – seems to be if there are two on the right edge, the first one just goes away!</del></li>
+  <li>I… think I got there… <del>There are presumably check and other issues in here (will need the same kind of “simulation” approach as in Knights). Need to decide whether it’s legible to disallow certain moves because they yield check? I think yes.</del></li>
+</ul>
+
+<h2 id="correspondence">Correspondence</h2>
+
+<h2 id="match-3">Match 3</h2>
+<ul>
+  <li>Looks like it works (if I don’t look too hard?) <del>Pretty sure there are check and mate issues to investigate. Need to simulate this? Or do you pretty much have to have captures/matching away the king here? <em>Are</em> there even captures in Match 3? If not then impossible to ever win probably. Might be able to do a simulation approach? Can’t perform a match that leaves you in check? But matching their king wins of course.</del></li>
+</ul>
+
+<h2 id="tick-tock">Tick Tock</h2>
+<ul>
+  <li><del>Needs a clock sound for the ticks and tocks</del></li>
+  <li>Way better <del>Improve sound to have subticks</del></li>
+  <li><del>Should probably only be checkmate if you finish a turn in check(or mate)? Increasingly think this is the only way… don’t let the kind move into check in the usual way, but do just allow capture king for win</del></li>
+</ul>
+
+<h1 id="-gave-up-on">😭 Gave up on</h1>
+
+<h2 id="personal">Personal</h2>
+<ul>
+  <li>Investigate modifying chessboard.js to include a DIV (or span?) around chess piece img and to animate that instead so that I could add stuff to pieces dynamically/on startup (such as the label for pieces in Personal) – it’s sort of “surface doable” but maybe be “technically hellish”?</li>
+</ul>
+
+<p><strong>Gave up</strong></p>
+
+
+      
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. <a href="https://github.com/pippinbarr/chesses4/edit/main/process/to-do.md">Improve this page</a>.
+      </div>
+      
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js" integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg=" crossorigin="anonymous"></script>
+    <script>anchors.add();</script>
+  </body>
+</html>
