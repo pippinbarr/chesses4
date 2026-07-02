@@ -34,7 +34,7 @@ let menu = [
   {
     title: "CORRESPOND",
     class: Correspondence,
-    info: "I'll get back to you."
+    info: "I'll get back to you. If you like a little context with your chess, you can view a [record of the game](https://pippinbarr.com/chesses4/process/correspondence)."
   },
   {
     title: "KNIGHTS",
