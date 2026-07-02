@@ -190,3 +190,7 @@ As ever in these dry patches it's such a relief to just make something whether o
 Just texted Jonathan about making the match 3 and thinking of the game made me want/need a cool sound for the match. And maybe a little animation as well (can just do the same jiggle as less n less?)
 
 It feels good to make stuff. It just does. Thank god for making stuff. 
+
+## Release time I think (2 July 2026)
+
+I'll get it all released-ish now and then I'll send it out to some people tomorrow. No hurry. Really fun that a couple of people have stumbled onto it and made some mores (well, two) in Correspondence Chess already.
