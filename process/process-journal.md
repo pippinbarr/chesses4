@@ -194,3 +194,7 @@ It feels good to make stuff. It just does. Thank god for making stuff.
 ## Release time I think (2 July 2026)
 
 I'll get it all released-ish now and then I'll send it out to some people tomorrow. No hurry. Really fun that a couple of people have stumbled onto it and made some mores (well, two) in Correspondence Chess already.
+
+## Today maybe.
+
+(Really I'm just trying to make a committ to trigger the rebuild.)
