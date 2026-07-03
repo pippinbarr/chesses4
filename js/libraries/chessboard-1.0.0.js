@@ -576,7 +576,7 @@
     // default piece theme is wikipedia
     if (!config.hasOwnProperty('pieceTheme') ||
       (!isString(config.pieceTheme) && !isFunction(config.pieceTheme))) {
-      config.pieceTheme = 'img/chesspieces/wikipedia/{piece}.png'
+      config.pieceTheme = 'assets/images/chesspieces/wikipedia/{piece}.png'
     }
 
     // animation speeds
@@ -922,7 +922,8 @@
         position: 'absolute',
         top: srcSquarePosition.top,
         left: srcSquarePosition.left
-      })
+      });
+      $animatedPiece.addClass("chessboardjs-animated-piece");
 
       // remove original piece from source square
       $srcSquare.find('.' + CSS.piece).remove()

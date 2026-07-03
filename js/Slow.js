@@ -8,4 +8,8 @@ class Slow extends BaseChess {
         this.boardConfig.moveSpeed = SLOW_ANIMATION_DURATION;
         super.setup();
     }
+
+    quit() {
+        $(".chessboardjs-animated-piece").remove();
+    }
 }
