@@ -7,4 +7,5 @@ White is Pippin, Black is everyone else
 1. e4 d5 (Herman) 
 2. exd5 Qxd5 (Elliot)
 3. Nc3 Qxd2 (Aminah)
-4. Bxd2 ...
+4. Bxd2 Nf6 (Geraint)
+5. h3 ...
