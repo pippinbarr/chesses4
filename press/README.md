@@ -60,7 +60,7 @@ Slow Chess
 
 ## Press
 
-Coming soon?
+- Edwin Evans-Thirlwell. [Well, Professor Pippin Barr, you've done it again: you've ruined chess](https://www.rockpapershotgun.com/well-professor-pippin-barr-youve-done-it-again-youve-ruined-chess). Rock, Paper, Shotgun. 3 Jul 2026.
 
 ## Credits
 * Pippin Barr: design and implementation
