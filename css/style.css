@@ -99,6 +99,11 @@ body {
   -webkit-user-select: none;
 }
 
+#correspond-message {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
 #game {
   display: none;
   margin: 0;
