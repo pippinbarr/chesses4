@@ -4,7 +4,7 @@ class Correspondence extends BaseChess {
     }
 
     setup() {
-        this.startFEN = "rnb1kb1r/ppp2ppp/5n2/8/4N3/5Q1P/PPPB1PP1/R3KBNR b KQkq - 0 4";
+        this.startFEN = "r1b1kb1r/pppn1ppp/5n2/8/4N3/5Q1P/PPPB1PP1/2KR1BNR b kq - 0 4";
         this.boardConfig.position = this.startFEN;
 
         super.setup();
