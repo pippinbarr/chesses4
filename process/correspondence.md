@@ -13,4 +13,5 @@ White is Pippin, Black is everyone else
 7. Nxe4 Nbd7 (Zachary)
 8. O-O-O Bb4 (Luke)
 9. Bxb4 Nc5 (Pawsai18)
-10. Bxc5
+10. Bxc5 g5 (Pawsai18)
+11. Qf4
