@@ -4,12 +4,12 @@ class Correspondence extends BaseChess {
     }
 
     setup() {
-        this.startFEN = "r1b1k2r/ppp2p1p/5n2/2B3p1/4NQ2/7P/PPP2PP1/2KR1BNR b kq - 0 4";
+        this.startFEN = "r1b1k2r/ppp2p1p/8/2B3p1/4Q3/7P/PPP2PP1/2KR1BNR b kq - 0 4";
         this.boardConfig.position = this.startFEN;
 
         super.setup();
 
-        this.moveNumber = 11; // Need to update per move
+        this.moveNumber = 12; // Need to update per move
         this.changeTurnTo('b');
         this.highlightTurn('b');
     }
