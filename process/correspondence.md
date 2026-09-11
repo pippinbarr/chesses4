@@ -17,4 +17,5 @@ White is Pippin, Black is everyone else
 11. Qf4 Nxe4 (Jeffrey)
 12. Qxe4+ Be6 (Liz)
 13. Nf3 c6 (Jamie)
-14. Bc4
+14. Bc4 h5 (Jamie)
+15. Bxe6
